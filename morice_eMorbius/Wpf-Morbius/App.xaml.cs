@@ -21,8 +21,8 @@ namespace Wpf_Morbius
             base.OnStartup(e);
 
             //Remplacer par votre fenêtre
-            View.FirstView window = new View.FirstView();
-            ViewModel.FirstViewModel vm = new ViewModel.FirstViewModel();
+            View.LoginView window = new View.LoginView();
+            ViewModel.LoginViewModel vm = new ViewModel.LoginViewModel();
             window.DataContext = vm;
             window.Show();
         }

@@ -7,26 +7,25 @@ using System.Windows;
 
 namespace Wpf_Morbius.ViewModel
 {
-    public class FirstViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         #region Commandes
-        public ICommand ClickCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
         #endregion
 
         /// <summary>
         /// constructeur
         /// </summary>
-        public FirstViewModel()
+        public LoginViewModel()
         {
-            ClickCommand = new RelayCommand(param => Click(), param => true);
+            LoginCommand = new RelayCommand(param => Login(), param => true);
         }
 
         /// <summary>
-        /// réponse à la commande click
+        /// réponse à la commande login
         /// </summary>
-        private void Click()
+        private void Login()
         {
-
         }
     }
 }

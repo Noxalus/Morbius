@@ -16,9 +16,9 @@ namespace Wpf_Morbius.View
     /// <summary>
     /// Interaction logic for FirstWindow.xaml
     /// </summary>
-    public partial class FirstView : Window
+    public partial class LoginView : Window
     {
-        public FirstView()
+        public LoginView()
         {
             InitializeComponent();
         }
