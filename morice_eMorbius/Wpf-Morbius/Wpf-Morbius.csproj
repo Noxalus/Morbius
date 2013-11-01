@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ListContentLoader.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Service References\ServiceLive\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -97,6 +98,24 @@
     <Compile Include="WindowCloseBehaviour.cs" />
     <Compile Include="View\MasterView.xaml.cs">
       <DependentUpon>MasterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\nopatient.xaml.cs">
+      <DependentUpon>nopatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\nouser.xaml.cs">
+      <DependentUpon>nouser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\patient.xaml.cs">
+      <DependentUpon>patient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\patient_list.xaml.cs">
+      <DependentUpon>patient_list.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\user.xaml.cs">
+      <DependentUpon>user.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\user_list.xaml.cs">
+      <DependentUpon>user_list.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +202,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MasterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\nopatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\nouser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\patient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\patient_list.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\user.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\user_list.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
