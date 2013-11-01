@@ -14,6 +14,8 @@ namespace Wpf_Morbius.ViewModel
         public ICommand _loginCommand { get; set; }
         private string _login;
         private bool _canLogIn = true;
+        private bool _closeSignal;
+        private ServiceUser.User _user;
         #endregion
 
         #region getter / setter
@@ -52,6 +54,22 @@ namespace Wpf_Morbius.ViewModel
             get { return _loginCommand; }
             set { _loginCommand = value; }
         }
+
+        /// <summary>
+        /// indique si on doit fermer la fenêtre ou non
+        /// </summary>
+        public bool CloseSignal
+        {
+            get { return _closeSignal; }
+            set
+            {
+                if (_closeSignal != value)
+                {
+                    _closeSignal = value;
+                    OnPropertyChanged("CloseSignal");
+                }
+            }
+        }
         #endregion
 
         /// <summary>
@@ -59,6 +77,10 @@ namespace Wpf_Morbius.ViewModel
         /// </summary>
         public LoginViewModel()
         {
+            base.DisplayName = "Page de login";
+
+            _login = "";
+            _user = new ServiceUser.User();
             _loginCommand = new RelayCommand(param => LoginAccess(((PasswordBox)param).Password), param => CanLogIn);
         }
 
@@ -67,29 +89,24 @@ namespace Wpf_Morbius.ViewModel
         /// </summary>
         private void LoginAccess(string password)
         {
-            ServiceUser.User user = new ServiceUser.User();
-
             ServiceUser.ServiceUserClient suc = new ServiceUser.ServiceUserClient();
 
             if (suc.Connect(_login, password))
             {
-                user = suc.GetUser(_login);
+                _user = suc.GetUser(_login);
+
+                /*
+                View.MasterView window = new View.MasterView();
+                ViewModel.MasterViewModel vm = new MasterViewModel();
+                window.DataContext = vm;
+                window.Show();
+                */
+                CloseSignal = true;
             }
             else
             {
 
             }
-
-            /*
-            if (_dataAccessUser.TestUser(Login, Password))
-            {
-                View.AllPeopleView window = new View.AllPeopleView();
-                ViewModel.AllPeopleViewModel vm = new AllPeopleViewModel();
-                window.DataContext = vm;
-                window.Show();
-                CloseSignal = true;
-            }
-            */
         }
     }
 }
