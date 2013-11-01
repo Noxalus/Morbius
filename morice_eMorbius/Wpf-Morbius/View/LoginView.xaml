@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="FirstWindow" Height="300" Width="300">
     <Grid>
-        <Button Width="100" Height="30" Content="Se Connecter" Command="{Binding ClickCommand}" Margin="96,195,96,45"/>
+        <Button Width="100" Height="30" Content="Se Connecter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=password}" Margin="96,195,96,45"/>
         <Label Content="Login :" HorizontalAlignment="Left" Margin="45.5,77.5,0,0" VerticalAlignment="Top"/>
         <Label Content="Mot de passe :" HorizontalAlignment="Left" Margin="45.5,108.46,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="137.8,80.46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="137.8,114.62,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding Login, Mode=TwoWay}" Height="23" Margin="137.8,80.46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox Name="password" HorizontalAlignment="Left" Margin="137.8,114.62,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
