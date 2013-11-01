@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,17 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FirstFloor.ModernUI.Windows.Controls;
 
 namespace Wpf_Morbius.View
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Logique d'interaction pour MasterView.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class MasterView : ModernWindow
     {
-        public LoginView()
+        public MasterView()
         {
-            InitializeComponent();
+            
         }
     }
 }

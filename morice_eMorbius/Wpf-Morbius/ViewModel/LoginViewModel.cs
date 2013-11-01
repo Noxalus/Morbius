@@ -95,12 +95,10 @@ namespace Wpf_Morbius.ViewModel
             {
                 _user = suc.GetUser(_login);
 
-                /*
                 View.MasterView window = new View.MasterView();
                 ViewModel.MasterViewModel vm = new MasterViewModel();
                 window.DataContext = vm;
                 window.Show();
-                */
                 CloseSignal = true;
             }
             else
