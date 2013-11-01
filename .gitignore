@@ -109,4 +109,4 @@ UpgradeLog*.XML
 UpgradeLog.*
 
 # Specific files
-morice_eMorbius/Wpf-Morbius/App.xaml.cs
+App.xaml.cs
