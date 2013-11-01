@@ -22,6 +22,7 @@ namespace Wpf_Morbius
 
             View.LoginView window = new View.LoginView();
             ViewModel.LoginViewModel vm = new ViewModel.LoginViewModel();
+            window.DataContext = vm;
 
             window.Show();
         }

@@ -20,7 +20,7 @@
         <TextBox HorizontalAlignment="Left" Text="{Binding Login, Mode=TwoWay}" Height="23" Margin="137.8,80.46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <PasswordBox Name="password" HorizontalAlignment="Left" Margin="137.8,114.62,0,0" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="{Binding Error}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,159,0,0" Height="31" Width="212"/>
+        <Label Content="{Binding Error}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,159,0,0" Height="31" Width="212" Foreground="Red" />
         <Button Content="Se Connecter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=password}" Margin="96,195,76,27"/>
     </Grid>
 </Window>
