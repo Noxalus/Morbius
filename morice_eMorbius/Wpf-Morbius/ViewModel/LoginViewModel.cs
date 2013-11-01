@@ -13,6 +13,7 @@ namespace Wpf_Morbius.ViewModel
         #region Commandes
         public ICommand _loginCommand { get; set; }
         private string _login;
+        private string _error;
         private bool _canLogIn = true;
         private bool _closeSignal;
         private ServiceUser.User _user;
@@ -31,6 +32,23 @@ namespace Wpf_Morbius.ViewModel
                 {
                     _login = value;
                     OnPropertyChanged("Login");
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// erreur lors de connection
+        /// </summary>
+        public string Error
+        {
+            get { return _error; }
+            set
+            {
+                if (_error != value)
+                {
+                    _error = value;
+                    OnPropertyChanged("Error");
                 }
 
             }
@@ -79,8 +97,11 @@ namespace Wpf_Morbius.ViewModel
         {
             base.DisplayName = "Page de login";
 
+            _error = "";
             _login = "";
             _user = new ServiceUser.User();
+
+            // Commandes
             _loginCommand = new RelayCommand(param => LoginAccess(((PasswordBox)param).Password), param => CanLogIn);
         }
 
@@ -103,7 +124,7 @@ namespace Wpf_Morbius.ViewModel
             }
             else
             {
-
+                Error = "Erreur lors de la connection !";
             }
         }
     }
