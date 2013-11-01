@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using FirstFloor.ModernUI.Windows.Controls;
 
 namespace Wpf_Morbius.View
 {
@@ -22,7 +22,7 @@ namespace Wpf_Morbius.View
     {
         public MasterView()
         {
-            
+            InitializeComponent();
         }
     }
 }
