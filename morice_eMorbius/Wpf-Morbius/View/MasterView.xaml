@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         Title="Morbius" IsTitleVisible="True"
-        ContentSource="/View/Pages/patient_list.xaml">
+        ContentSource="/View/Pages/patient_list.xaml"
+        MinWidth="600" MinHeight="450">
     <mui:ModernWindow.TitleLinks>
         <mui:Link DisplayName="Deconnexion" Source="/View/Pages/deco.xaml" />
     </mui:ModernWindow.TitleLinks>
