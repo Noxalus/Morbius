@@ -5,9 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
     <Grid Name="content">
-        <Label Content="Utilisateur Choisi : " HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding Login}" HorizontalAlignment="Left" Margin="76,41,0,0" VerticalAlignment="Top" Height="17" Width="129" />
+        <Label Content="Prenom Nom (à binder)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
+
+        <Image HorizontalAlignment="Left" Height="100" Margin="10,41,0,0" VerticalAlignment="Top" Width="100"/>
+
+        <Label Content="Login : " HorizontalAlignment="Left" Margin="127,41,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding Login}" HorizontalAlignment="Left" Margin="171,41,0,0" VerticalAlignment="Top"/>
+
+        <Label Content="Rôle : " HorizontalAlignment="Left" Margin="127,62,0,0" VerticalAlignment="Top"/>
+        <Label Content="à binder" HorizontalAlignment="Left" Margin="165,62,0,0" VerticalAlignment="Top"/>
+
+        <!-- Penser à binder la couleur (cf TP3) et à eventuellement changer le connecté en non connecter -->
+        <Ellipse x:Name="ellipse1" Width="10" Height="10" Stroke="Black" Fill="Green" Margin="127,131,163,159" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Label Content="Connecté" HorizontalAlignment="Left" Margin="151,128,0,0" VerticalAlignment="Top"/>
+        <Button Content="Supprimer cet utilisateur" Margin="0,0,10,10" HorizontalAlignment="Right" Width="204" Height="26" VerticalAlignment="Bottom"/>
+
+
 
     </Grid>
 </UserControl>
