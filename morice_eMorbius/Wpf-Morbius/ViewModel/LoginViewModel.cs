@@ -10,14 +10,14 @@ namespace Wpf_Morbius.ViewModel
 {
     public class LoginViewModel : BaseViewModel
     {
-        #region Commandes
-        public ICommand _loginCommand { get; set; }
         private string _login;
         private string _error;
         private bool _canLogIn = true;
         private bool _closeSignal;
-        private ServiceUser.User _user;
-        #endregion
+        private static ServiceUser.User _user = new ServiceUser.User();
+
+        // Commandes
+        public ICommand _loginCommand { get; set; }
 
         #region getter / setter
         /// <summary>
@@ -88,6 +88,12 @@ namespace Wpf_Morbius.ViewModel
                 }
             }
         }
+
+        public static ServiceUser.User GetUser()
+        {
+            return _user;
+        }
+
         #endregion
 
         /// <summary>
@@ -99,7 +105,6 @@ namespace Wpf_Morbius.ViewModel
 
             _error = "";
             _login = "";
-            _user = new ServiceUser.User();
 
             // Commandes
             _loginCommand = new RelayCommand(param => LoginAccess(((PasswordBox)param).Password), param => CanLogIn);
@@ -110,21 +115,36 @@ namespace Wpf_Morbius.ViewModel
         /// </summary>
         private void LoginAccess(string password)
         {
-            ServiceUser.ServiceUserClient suc = new ServiceUser.ServiceUserClient();
-
-            if (suc.Connect(_login, password))
+            try
             {
-                _user = suc.GetUser(_login);
+                Error = "";
+                if (_login != "" && password != "")
+                {
+                    ServiceUser.ServiceUserClient suc = new ServiceUser.ServiceUserClient();
 
-                View.MasterView window = new View.MasterView();
-                ViewModel.MasterViewModel vm = new MasterViewModel();
-                window.DataContext = vm;
-                window.Show();
-                CloseSignal = true;
+                    if (suc.Connect(_login, password))
+                    {
+                        _user = suc.GetUser(_login);
+
+                        View.MasterView window = new View.MasterView();
+                        ViewModel.MasterViewModel vm = new MasterViewModel();
+                        window.DataContext = vm;
+                        window.Show();
+                        CloseSignal = true;
+                    }
+                    else
+                    {
+                        Error = "Erreur d'authentification, vérifiez que vous avez bien entré les bons identifiants.";
+                    }
+                }
+                else
+                {
+                    Error = "Vous devez entrer un login et un mot de passe pour vous connecter.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Error = "Erreur lors de la connection !";
+                Error = ex.Message;
             }
         }
     }
