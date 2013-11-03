@@ -98,8 +98,14 @@
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\patient_add.xaml.cs">
+      <DependentUpon>patient_add.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\user_add.xaml.cs">
       <DependentUpon>user_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\patient_details.xaml.cs">
+      <DependentUpon>patient_details.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowCloseBehaviour.cs" />
     <Compile Include="View\MasterView.xaml.cs">
@@ -223,6 +229,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\patient_add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\patient_list.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -232,6 +242,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\user_add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\patient_details.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

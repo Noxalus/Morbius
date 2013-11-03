@@ -3,11 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Name="content">
-        <Label Content="Patient n° : " HorizontalAlignment="Left" Margin="27,41,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding Id}" HorizontalAlignment="Left" Margin="93,41,0,0" VerticalAlignment="Top" />
+        <Label Content="Prénom Nom - ../../.." HorizontalAlignment="Left" Margin="10,-10,0,0" VerticalAlignment="Top"/>
+        <mui:ModernTab SelectedSource="View/Pages/patient_details.xaml" Layout="Tab" Margin="10,31,0,0">
+            <mui:ModernTab.Links>
+                <mui:Link DisplayName="Résumé" Source="View/Pages/patient_details.xaml"/>
+                <mui:Link DisplayName="Obs." Source="" />
+                <mui:Link DisplayName="Pouls" Source="" />
+                <mui:Link DisplayName="Temp." Source="" />
+            </mui:ModernTab.Links>
+        </mui:ModernTab>
+        
 
     </Grid>
 </UserControl>
