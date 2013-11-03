@@ -120,16 +120,17 @@ namespace Wpf_Morbius.ViewModel
                 Error = "";
                 if (_login != "" && password != "")
                 {
-                    ServiceUser.ServiceUserClient suc = new ServiceUser.ServiceUserClient();
+                    var suc = new ServiceUser.ServiceUserClient();
 
                     if (suc.Connect(_login, password))
                     {
                         _user = suc.GetUser(_login);
 
-                        View.MasterView window = new View.MasterView();
-                        ViewModel.MasterViewModel vm = new MasterViewModel();
+                        var window = new View.MasterView();
+                        var vm = new MasterViewModel();
                         window.DataContext = vm;
                         window.Show();
+                        
                         CloseSignal = true;
                     }
                     else

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf_Morbius.ViewModel;
 
 namespace Wpf_Morbius.View.Pages
 {
@@ -20,20 +21,11 @@ namespace Wpf_Morbius.View.Pages
     /// </summary>
     public partial class user : UserControl
     {
-        private String _login;
-
-        public String Login
-        {
-            get { return _login; }
-            set { _login = value; }
-        }
-
         public user(String login)
         {
             InitializeComponent();
-            InitializeComponent();
-            content.DataContext = this;
-            _login = login;
+
+            DataContext = new UserViewModel(login);
         }
     }
 }

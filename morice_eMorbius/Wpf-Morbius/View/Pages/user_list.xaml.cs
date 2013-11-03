@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf_Morbius.ViewModel;
 
 namespace Wpf_Morbius.View.Pages
 {
@@ -21,34 +22,11 @@ namespace Wpf_Morbius.View.Pages
     /// </summary>
     public partial class user_list : Page
     {
-        private LinkCollection items = new LinkCollection();
-        public LinkCollection Items
-        {
-            get { return this.items; }
-            set
-            {
-                if (this.items != value)
-                {
-                    this.items = value;
-                }
-            }
-        }
-
         public user_list()
         {
             InitializeComponent();
 
-            this.items.Add(new Link
-            {
-                DisplayName = "Utilisateur 1",
-                Source = new Uri("user/login1", UriKind.Relative),
-            });
-            this.items.Add(new Link
-            {
-                DisplayName = "Utilisateur 2",
-                Source = new Uri("user/login2", UriKind.Relative),
-            });
-            listBox.DataContext = this;
+            DataContext = new UserListViewModel();
         }
     }
 }
