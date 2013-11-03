@@ -7,7 +7,7 @@
         <Style x:Key="StyleMainGrid">
             <!--trigger pour fermer la fenêtre-->
             <Style.Triggers>
-                <DataTrigger  Binding="{Binding CloseSignal}" Value="true">
+                <DataTrigger Binding="{Binding CloseSignal}" Value="true">
                     <Setter Property="Behaviours:WindowCloseBehaviour.Close" Value="true"/>
                 </DataTrigger>
             </Style.Triggers>
@@ -18,12 +18,12 @@
         <Label Content="Login :" HorizontalAlignment="Left" Margin="46,48,0,0" VerticalAlignment="Top"/>
         <Label Content="Mot de passe :" HorizontalAlignment="Left" Margin="46,79,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding Login, Mode=TwoWay}" Height="23" Margin="138,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox Name="password" HorizontalAlignment="Left" Margin="138,86,0,0" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox Name="Password" HorizontalAlignment="Left" Margin="138,86,0,0" VerticalAlignment="Top" Width="120"/>
 
 
 
         <TextBlock Text="{Binding Error}" Foreground="Red" TextWrapping="WrapWithOverflow" FontWeight="Bold" TextAlignment="Center" Margin="10,118,10,89" Height="63" Width="250"></TextBlock>
         
-        <Button Content="Se Connecter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=password}" Margin="96,195,76,27"/>
+        <Button Content="Se Connecter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Password}" Margin="96,195,76,27"/>
     </Grid>
 </Window>

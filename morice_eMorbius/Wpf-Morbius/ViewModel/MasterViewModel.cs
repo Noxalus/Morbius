@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace Wpf_Morbius.ViewModel
 {
@@ -14,10 +17,6 @@ namespace Wpf_Morbius.ViewModel
         public string Login
         {
             get { return LoginViewModel.GetUser().Login; }
-            set
-            {
-                OnPropertyChanged("Login");
-            }
         }
 
         public MasterViewModel()
