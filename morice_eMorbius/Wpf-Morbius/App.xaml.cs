@@ -20,9 +20,11 @@ namespace Wpf_Morbius
         {
             base.OnStartup(e);
 
-            View.LoginView window = new View.LoginView();
-            ViewModel.LoginViewModel vm = new ViewModel.LoginViewModel();
-            window.DataContext = vm;
+            //View.LoginView window = new View.LoginView();
+            //ViewModel.LoginViewModel vm = new ViewModel.LoginViewModel();
+            //window.DataContext = vm;
+
+            View.MasterView window = new View.MasterView();
 
             window.Show();
         }

@@ -16,11 +16,10 @@ using System.Windows.Shapes;
 namespace Wpf_Morbius.View.Pages
 {
     /// <summary>
-    /// Logique d'interaction pour patient.xaml
+    /// Logique d'interaction pour user_details.xaml
     /// </summary>
-    public partial class patient : UserControl
+    public partial class user_details : UserControl
     {
-        public static int current = 0;
         private int _id;
 
         public int Id
@@ -29,14 +28,10 @@ namespace Wpf_Morbius.View.Pages
             set { _id = value; }
         }
 
-        public patient(string id)
+        public user_details()
         {
             InitializeComponent();
-            content.DataContext = this;
-            _id = Convert.ToInt32(id);
-            current = _id;
+            _id = patient.current;
         }
-
-
     }
 }

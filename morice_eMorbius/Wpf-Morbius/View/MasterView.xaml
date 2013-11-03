@@ -5,9 +5,7 @@
         Title="Morbius" IsTitleVisible="True"
         ContentSource="/View/Pages/patient_list.xaml"
         MinWidth="600" MinHeight="450">
-    <mui:ModernWindow.TitleLinks>
-        <mui:Link DisplayName="Deconnexion" Source="/View/Pages/deco.xaml" />
-    </mui:ModernWindow.TitleLinks>
+
     
     <mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup DisplayName="Patients" >
