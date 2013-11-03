@@ -6,7 +6,7 @@ namespace Wpf_Morbius.ViewModel
     class PatientViewModel : BaseViewModel
     {
         public static ServicePatient.Patient Patient;
-        private string _basicInformation;
+        private readonly string _basicInformation;
 
         public int Id
         {
@@ -25,7 +25,7 @@ namespace Wpf_Morbius.ViewModel
                 var spc = new ServicePatient.ServicePatientClient();
                 Patient = spc.GetPatient(id);
 
-                _basicInformation = UppercaseFirst(Patient.Firstname) + " " + Patient.Name.ToUpper() + " - " + String.Format("{0:d/M/yyyy}", Patient.Birthday);
+                _basicInformation = UppercaseFirst(Patient.Firstname) + " " + Patient.Name.ToUpper() + " - " + String.Format("{0:dd/MM/yyyy}", Patient.Birthday);
             }
             catch (Exception)
             {

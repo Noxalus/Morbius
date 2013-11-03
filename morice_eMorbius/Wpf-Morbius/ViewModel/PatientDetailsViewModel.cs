@@ -1,7 +1,5 @@
 ﻿
-using System;
 using System.Linq;
-using Wpf_Morbius.ServicePatient;
 
 namespace Wpf_Morbius.ViewModel
 {
@@ -11,7 +9,7 @@ namespace Wpf_Morbius.ViewModel
         {
             get
             {
-                return (PatientViewModel.Patient.Observations.Any())  ? PatientViewModel.Patient.Observations[0].Comment : null;
+                return (PatientViewModel.Patient.Observations != null && PatientViewModel.Patient.Observations.Any()) ? PatientViewModel.Patient.Observations[0].Comment : null;
             }
         }
 

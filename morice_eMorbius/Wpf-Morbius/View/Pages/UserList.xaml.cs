@@ -20,9 +20,9 @@ namespace Wpf_Morbius.View.Pages
     /// <summary>
     /// Logique d'interaction pour user_list.xaml
     /// </summary>
-    public partial class user_list : Page
+    public partial class UserList : Page
     {
-        public user_list()
+        public UserList()
         {
             InitializeComponent();
 

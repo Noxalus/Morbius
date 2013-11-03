@@ -50,7 +50,7 @@ namespace Wpf_Morbius.ViewModel
                 this.items.Add(new Link
                 {
                     DisplayName = p.Name,
-                    Source = new Uri("patient/" + p.Id, UriKind.Relative),
+                    Source = new Uri("Patient/" + p.Id, UriKind.Relative),
                 });
             }
         }

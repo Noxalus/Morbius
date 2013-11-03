@@ -91,6 +91,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\AddUserViewModel.cs" />
+    <Compile Include="ViewModel\AddPatientViewModel.cs" />
     <Compile Include="ViewModel\PatientDetailsViewModel.cs" />
     <Compile Include="ViewModel\PatientViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
@@ -101,36 +102,36 @@
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\patient_add.xaml.cs">
-      <DependentUpon>patient_add.xaml</DependentUpon>
+    <Compile Include="View\Pages\PatientAdd.xaml.cs">
+      <DependentUpon>PatientAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\user_add.xaml.cs">
-      <DependentUpon>user_add.xaml</DependentUpon>
+    <Compile Include="View\Pages\UserAdd.xaml.cs">
+      <DependentUpon>UserAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\patient_details.xaml.cs">
-      <DependentUpon>patient_details.xaml</DependentUpon>
+    <Compile Include="View\Pages\PatientDetails.xaml.cs">
+      <DependentUpon>PatientDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowCloseBehaviour.cs" />
     <Compile Include="View\MasterView.xaml.cs">
       <DependentUpon>MasterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\nopatient.xaml.cs">
-      <DependentUpon>nopatient.xaml</DependentUpon>
+    <Compile Include="View\Pages\NoPatient.xaml.cs">
+      <DependentUpon>NoPatient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\nouser.xaml.cs">
-      <DependentUpon>nouser.xaml</DependentUpon>
+    <Compile Include="View\Pages\NoUser.xaml.cs">
+      <DependentUpon>NoUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\patient.xaml.cs">
-      <DependentUpon>patient.xaml</DependentUpon>
+    <Compile Include="View\Pages\Patient.xaml.cs">
+      <DependentUpon>Patient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\patient_list.xaml.cs">
-      <DependentUpon>patient_list.xaml</DependentUpon>
+    <Compile Include="View\Pages\PatientList.xaml.cs">
+      <DependentUpon>PatientList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\user.xaml.cs">
-      <DependentUpon>user.xaml</DependentUpon>
+    <Compile Include="View\Pages\User.xaml.cs">
+      <DependentUpon>User.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\user_list.xaml.cs">
-      <DependentUpon>user_list.xaml</DependentUpon>
+    <Compile Include="View\Pages\UserList.xaml.cs">
+      <DependentUpon>UserList.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -220,39 +221,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\nopatient.xaml">
+    <Page Include="View\Pages\NoPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\nouser.xaml">
+    <Page Include="View\Pages\NoUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\patient.xaml">
+    <Page Include="View\Pages\Patient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\patient_add.xaml">
+    <Page Include="View\Pages\PatientAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\patient_list.xaml">
+    <Page Include="View\Pages\PatientList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\user.xaml">
+    <Page Include="View\Pages\User.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\user_add.xaml">
+    <Page Include="View\Pages\UserAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\patient_details.xaml">
+    <Page Include="View\Pages\PatientDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\user_list.xaml">
+    <Page Include="View\Pages\UserList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

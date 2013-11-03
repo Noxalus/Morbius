@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Wpf_Morbius.View.Pages.patient"
+﻿<UserControl x:Class="Wpf_Morbius.View.Pages.Patient"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,9 +8,9 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Name="content">
         <Label Content="{Binding BasicInformation}" HorizontalAlignment="Left" Margin="10,-10,0,0" VerticalAlignment="Top"/>
-        <mui:ModernTab SelectedSource="View/Pages/patient_details.xaml" Layout="Tab" Margin="10,31,0,0">
+        <mui:ModernTab SelectedSource="View/Pages/PatientDetails.xaml" Layout="Tab" Margin="10,31,0,0">
             <mui:ModernTab.Links>
-                <mui:Link DisplayName="Résumé" Source="View/Pages/patient_details.xaml"/>
+                <mui:Link DisplayName="Résumé" Source="View/Pages/PatientDetails.xaml"/>
                 <mui:Link DisplayName="Obs." Source="" />
                 <mui:Link DisplayName="Pouls" Source="" />
                 <mui:Link DisplayName="Temp." Source="" />

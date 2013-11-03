@@ -4,15 +4,15 @@ using Wpf_Morbius.ViewModel;
 namespace Wpf_Morbius.View.Pages
 {
     /// <summary>
-    /// Logique d'interaction pour user_add.xaml
+    /// Logique d'interaction pour patient_add.xaml
     /// </summary>
-    public partial class user_add : Page
+    public partial class PatientAdd : Page
     {
-        public user_add()
+        public PatientAdd()
         {
             InitializeComponent();
 
-            DataContext = new AddUserViewModel();
+            DataContext = new AddPatientViewModel();
         }
     }
 }

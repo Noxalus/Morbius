@@ -3,21 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         Title="Morbius" IsTitleVisible="True"
-        ContentSource="/View/Pages/patient_list.xaml"
+        ContentSource="/View/Pages/PatientList.xaml"
         MinWidth="600" MinHeight="450">
 
     
     <mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup DisplayName="Patients" >
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="Consulter" Source="/View/Pages/patient_list.xaml" />
-                <mui:Link DisplayName="Ajouter" Source="/View/Pages/patient_add.xaml" />
+                <mui:Link DisplayName="Consulter" Source="/View/Pages/PatientList.xaml" />
+                <mui:Link DisplayName="Ajouter" Source="/View/Pages/PatientAdd.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="Utilisateurs" >
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="Consulter" Source="/View/Pages/user_list.xaml" />
-                <mui:Link DisplayName="Ajouter" Source="/View/Pages/user_add.xaml" />
+                <mui:Link DisplayName="Consulter" Source="/View/Pages/UserList.xaml" />
+                <mui:Link DisplayName="Ajouter" Source="/View/Pages/UserAdd.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>

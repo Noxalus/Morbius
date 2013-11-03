@@ -34,7 +34,7 @@ namespace Wpf_Morbius.ViewModel
                 this.items.Add(new Link
                 {
                     DisplayName = u.Login,
-                    Source = new Uri("user/" + u.Login, UriKind.Relative),
+                    Source = new Uri("User/" + u.Login, UriKind.Relative),
                 });
             }
         }

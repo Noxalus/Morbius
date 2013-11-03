@@ -7,9 +7,9 @@ namespace Wpf_Morbius.View.Pages
     /// <summary>
     /// Logique d'interaction pour patient.xaml
     /// </summary>
-    public partial class patient : UserControl
+    public partial class Patient : UserControl
     {
-        public patient(string id)
+        public Patient(string id)
         {
             InitializeComponent();
 

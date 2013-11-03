@@ -9,6 +9,11 @@ namespace Wpf_Morbius.ViewModel
     {
         private User _user;
 
+        /// <summary>
+        /// command pour ajouter un utilisateur
+        /// </summary>
+        public ICommand AddUserCommand { get; set; }
+
         #region Accessors
         public string Login
         {
@@ -75,11 +80,6 @@ namespace Wpf_Morbius.ViewModel
             }
         }
         #endregion
-
-        /// <summary>
-        /// command pour ajouter un utilisateur
-        /// </summary>
-        public ICommand AddUserCommand { get; set; }
 
         public AddUserViewModel()
         {

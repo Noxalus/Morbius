@@ -19,9 +19,9 @@ namespace Wpf_Morbius.View.Pages
     /// <summary>
     /// Logique d'interaction pour user.xaml
     /// </summary>
-    public partial class user : UserControl
+    public partial class User : UserControl
     {
-        public user(String login)
+        public User(String login)
         {
             InitializeComponent();
 

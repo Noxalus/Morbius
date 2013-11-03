@@ -14,10 +14,10 @@ namespace Wpf_Morbius
         {
             String[] elt = uri.ToString().Split('/');
 
-            if (elt[0].Equals("patient"))
-                return new patient(elt[1]);
-            if (elt[0].Equals("user"))
-                return new user(elt[1]);
+            if (elt[0].Equals("Patient"))
+                return new Patient(elt[1]);
+            if (elt[0].Equals("User"))
+                return new User(elt[1]);
             return base.LoadContent(uri);
         }
     }
