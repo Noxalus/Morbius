@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Wpf_Morbius
 {
@@ -20,11 +15,9 @@ namespace Wpf_Morbius
         {
             base.OnStartup(e);
 
-            //View.LoginView window = new View.LoginView();
-            //ViewModel.LoginViewModel vm = new ViewModel.LoginViewModel();
-            //window.DataContext = vm;
-
-            View.MasterView window = new View.MasterView();
+            var window = new View.LoginView();
+            var vm = new ViewModel.LoginViewModel();
+            window.DataContext = vm;
 
             window.Show();
         }
