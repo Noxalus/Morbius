@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf_Morbius.ViewModel;
 
 namespace Wpf_Morbius.View.Pages
 {
@@ -20,18 +21,12 @@ namespace Wpf_Morbius.View.Pages
     /// </summary>
     public partial class user_details : UserControl
     {
-        private int _id;
-
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
 
         public user_details()
         {
             InitializeComponent();
-            _id = patient.current;
+
+            DataContext = new PatientDetailsViewModel();
         }
     }
 }

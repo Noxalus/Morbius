@@ -22,7 +22,7 @@
 
         <!--Binder à la derniere observation si applicable-->
         <Label Content="Dernière prescription : " HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBlock Background="AliceBlue" Margin="10,212,10,0" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque adipiscing faucibus nisl in tempor. Phasellus in varius sem, vitae tincidunt leo." VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBlock Background="AliceBlue" Margin="10,212,10,0" TextWrapping="Wrap" Text="{Binding LastObservation}" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
         <!-- TODO : Invisible pour les infirmières -->
         <Button Content="Supprimer le patient" Margin="0,0,10,4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="158" Height="26" VerticalAlignment="Bottom"/>

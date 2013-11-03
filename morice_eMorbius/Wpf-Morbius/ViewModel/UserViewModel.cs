@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Wpf_Morbius.ViewModel
 {
     class UserViewModel : BaseViewModel
@@ -40,10 +42,18 @@ namespace Wpf_Morbius.ViewModel
 
         public UserViewModel(string login)
         {
-            var suc = new ServiceUser.ServiceUserClient();
+            try
+            {
+                var suc = new ServiceUser.ServiceUserClient();
 
-            _user = suc.GetUser(login);
-            _fullname = UppercaseFirst(_user.Firstname) + " " + _user.Name.ToUpper();
+                _user = suc.GetUser(login);
+                _fullname = UppercaseFirst(_user.Firstname) + " " + _user.Name.ToUpper();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         static string UppercaseFirst(string s)
