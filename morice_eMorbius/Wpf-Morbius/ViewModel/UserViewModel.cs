@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Wpf_Morbius.Tools;
 
 namespace Wpf_Morbius.ViewModel
 {
@@ -47,24 +48,13 @@ namespace Wpf_Morbius.ViewModel
                 var suc = new ServiceUser.ServiceUserClient();
 
                 _user = suc.GetUser(login);
-                _fullname = UppercaseFirst(_user.Firstname) + " " + _user.Name.ToUpper();
+                _fullname = StringHelper.UppercaseFirst(_user.Firstname) + " " + _user.Name.ToUpper();
             }
             catch (Exception)
             {
 
                 throw;
             }
-        }
-
-        static string UppercaseFirst(string s)
-        {
-            // Check for empty string.
-            if (string.IsNullOrEmpty(s))
-            {
-                return string.Empty;
-            }
-            // Return char and concat substring.
-            return char.ToUpper(s[0]) + s.Substring(1);
         }
     }
 }
