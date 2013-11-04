@@ -26,9 +26,9 @@
         <!-- Penser à binder la couleur (cf TP3) et à eventuellement changer le connecté en non connecter -->
         <Ellipse x:Name="ellipse1"  Width="10" Height="10" Stroke="Black" Fill="{Binding Path=Connected, Converter={StaticResource colorConverter}}" Margin="127,131,163,159" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <Label Content="{Binding Path=Connected, Converter={StaticResource stringConverter}}" HorizontalAlignment="Left" Margin="151,128,0,0" VerticalAlignment="Top"/>
-        <Button Content="Supprimer cet utilisateur" Margin="0,0,10,10" HorizontalAlignment="Right" Width="204" Height="26" VerticalAlignment="Bottom"/>
+        <Button Content="Supprimer cet utilisateur" Command="{Binding DeleteUserCommand}" Margin="0,0,10,10" HorizontalAlignment="Right" Width="204" Height="26" VerticalAlignment="Bottom"/>
 
-
+        <TextBlock Text="{Binding Error}" Foreground="Red" TextWrapping="WrapWithOverflow" FontWeight="Bold" TextAlignment="Center" Margin="25,196,25,41" Height="63" Width="250"></TextBlock>
 
     </Grid>
 </UserControl>

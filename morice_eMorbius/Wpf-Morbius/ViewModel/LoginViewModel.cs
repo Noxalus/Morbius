@@ -17,7 +17,7 @@ namespace Wpf_Morbius.ViewModel
         private static ServiceUser.User _user = new ServiceUser.User();
 
         // Commandes
-        public ICommand _loginCommand { get; set; }
+        private ICommand _loginCommand { get; set; }
 
         #region getter / setter
         /// <summary>

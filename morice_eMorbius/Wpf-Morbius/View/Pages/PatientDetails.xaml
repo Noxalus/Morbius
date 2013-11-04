@@ -25,7 +25,7 @@
         <TextBlock Background="AliceBlue" Margin="10,212,10,0" TextWrapping="Wrap" Text="{Binding LastObservation}" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
         <!-- TODO : Invisible pour les infirmières -->
-        <Button Content="Supprimer le patient" Margin="0,0,10,4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="158" Height="26" VerticalAlignment="Bottom"/>
+        <Button Content="Supprimer le patient" Command="{Binding DeletePatientCommand}" Margin="0,0,10,4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="158" Height="26" VerticalAlignment="Bottom"/>
 
 
     </Grid>
