@@ -88,6 +88,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Tools\StringHelper.cs" />
+    <Compile Include="Tools\StringVisibilityConverter.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -216,6 +217,10 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Assets\LoginStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

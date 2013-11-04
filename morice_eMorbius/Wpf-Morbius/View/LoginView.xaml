@@ -1,29 +1,35 @@
-﻿<Window x:Class="Wpf_Morbius.View.LoginView"
+﻿<mui:ModernWindow x:Class="Wpf_Morbius.View.LoginView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Page de login" Height="300" Width="300" xmlns:Behaviours="clr-namespace:Wpf_Morbius">
+        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+        xmlns:app="clr-namespace:Wpf_Morbius"
+        Title="Login"
+        ResizeMode="NoResize"
+        Height="325" Width="325" 
+        Style="{StaticResource EmptyWindow}" >
 
     <Window.Resources>
-        <Style x:Key="StyleMainGrid">
-            <!--trigger pour fermer la fenêtre-->
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding CloseSignal}" Value="true">
-                    <Setter Property="Behaviours:WindowCloseBehaviour.Close" Value="true"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
+        <ResourceDictionary Source="/Assets/LoginStyle.xaml"/>
+
     </Window.Resources>
 
     <Grid Style="{StaticResource StyleMainGrid}">
-        <Label Content="Login :" HorizontalAlignment="Left" Margin="46,48,0,0" VerticalAlignment="Top"/>
-        <Label Content="Mot de passe :" HorizontalAlignment="Left" Margin="46,79,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding Login, Mode=TwoWay}" Height="23" Margin="138,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox Name="Password" HorizontalAlignment="Left" Margin="138,86,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock Text="Morbius" Style="{StaticResource Title}" HorizontalAlignment="Stretch" Margin="10,19,10,0" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding Error}"  Style="{StaticResource Error}"/>
+        <TextBlock Text="Veuillez vous connecter pour accéder à l'application." Style="{StaticResource SubTitle}" Visibility="{Binding Path=Error, Converter={StaticResource VisibilityConverter}}" />
+
+        <Label Content="Login :" HorizontalAlignment="Left" Margin="10,0,0,134" VerticalAlignment="Bottom"/>
+        <Label Content="Mot de passe :" HorizontalAlignment="Left" Margin="10,0,0,96" VerticalAlignment="Bottom"/>
+        <TextBox Text="{Binding Login, Mode=TwoWay}" Margin="138,0,10,128" TextWrapping="Wrap" Height="25" VerticalAlignment="Bottom"/>
+        <PasswordBox Name="Password" Margin="138,0,10,88" Height="25" VerticalAlignment="Bottom"/>
+
+
+        <Button Content="Valider" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Password}" HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom" Width="75"/>
 
 
 
-        <TextBlock Text="{Binding Error}" Foreground="Red" TextWrapping="WrapWithOverflow" FontWeight="Bold" TextAlignment="Center" Margin="10,118,10,89" Height="63" Width="250"></TextBlock>
-        
-        <Button Content="Se Connecter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Password}" Margin="96,195,76,27"/>
+
+
     </Grid>
-</Window>
+</mui:ModernWindow>
