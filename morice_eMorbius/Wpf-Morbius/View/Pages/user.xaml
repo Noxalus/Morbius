@@ -8,27 +8,25 @@
              d:DesignHeight="300" d:DesignWidth="300">
 
     <UserControl.Resources>
-        <app:BoolColorConverter x:Key="colorConverter"/>
-        <app:BoolConnectedConverter x:Key="stringConverter"/>
-        <app:ImageConverter x:Key="imageConverter" />
+        <ResourceDictionary Source="/Assets/MasterStyle.xaml"/>
     </UserControl.Resources>
-    
+
     <Grid Name="content">
-        <Label Content="{Binding Fullname}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
+        <TextBlock Text="{Binding Fullname}" Style="{StaticResource Title}" />
 
         <Image Source="{Binding Path=Picture, Converter={StaticResource imageConverter}}" HorizontalAlignment="Left" Height="100" Margin="10,41,0,0" VerticalAlignment="Top" Width="100"/>
 
-        <Label Content="Login : " HorizontalAlignment="Left" Margin="127,41,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding Login}" HorizontalAlignment="Left" Margin="171,41,0,0" VerticalAlignment="Top"/>
+        <TextBlock Text="Login : " HorizontalAlignment="Left" Margin="127,41,0,0" VerticalAlignment="Top" Style="{StaticResource Info}"/>
+        <TextBlock Text="{Binding Login}" HorizontalAlignment="Left" Margin="180,41,0,0" VerticalAlignment="Top" Style="{StaticResource Content}"/>
 
-        <Label Content="Rôle : " HorizontalAlignment="Left" Margin="127,62,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding Role}" HorizontalAlignment="Left" Margin="165,62,0,0" VerticalAlignment="Top"/>
+        <TextBlock Text="Rôle : " HorizontalAlignment="Left" Margin="127,62,0,0" VerticalAlignment="Top" Style="{StaticResource Info}"/>
+        <TextBlock Text="{Binding Role}" HorizontalAlignment="Left" Margin="180,62,0,0" VerticalAlignment="Top" Style="{StaticResource Content}"/>
 
         <Ellipse x:Name="ellipse1"  Width="10" Height="10" Stroke="Black" Fill="{Binding Path=Connected, Converter={StaticResource colorConverter}}" Margin="127,131,163,159" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Label Content="{Binding Path=Connected, Converter={StaticResource stringConverter}}" HorizontalAlignment="Left" Margin="151,128,0,0" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding Path=Connected, Converter={StaticResource stringConverter}}" HorizontalAlignment="Left" Margin="151,128,0,0" VerticalAlignment="Top"/>
         <Button Content="Supprimer cet utilisateur" Command="{Binding DeleteUserCommand}" Margin="0,0,10,10" HorizontalAlignment="Right" Width="204" Height="26" VerticalAlignment="Bottom"/>
 
-        <TextBlock Text="{Binding Error}" Foreground="Red" TextWrapping="WrapWithOverflow" FontWeight="Bold" TextAlignment="Center" Margin="25,196,25,41" Height="63" Width="250"></TextBlock>
+        <TextBlock Text="{Binding Error}" Margin="25,196,25,41" Height="63" Width="250" Style="{StaticResource Error}"></TextBlock>
 
     </Grid>
 </UserControl>

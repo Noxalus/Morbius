@@ -6,9 +6,12 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Assets/MasterStyle.xaml"/>
+    </UserControl.Resources>
     <Grid Name="content">
-        <Label Content="{Binding BasicInformation}" HorizontalAlignment="Left" Margin="10,-10,0,0" VerticalAlignment="Top"/>
-        <mui:ModernTab SelectedSource="View/Pages/PatientDetails.xaml" Layout="Tab" Margin="10,31,0,0" >
+        <TextBlock Text="{Binding BasicInformation}"  Style="{StaticResource Title}"/>
+        <mui:ModernTab SelectedSource="View/Pages/PatientDetails.xaml" Layout="Tab" Margin="10,60,0,0" >
             <mui:ModernTab.Links>
                 <mui:Link DisplayName="Résumé" Source="View/Pages/PatientDetails.xaml"/>
                 <mui:Link DisplayName="Obs." Source="View/Pages/PatientObs.xaml" />
@@ -16,7 +19,7 @@
                 <mui:Link DisplayName="Temp." Source="View/Pages/PatientTemp.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
-        
+
 
     </Grid>
 </UserControl>

@@ -29,7 +29,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="{Binding Date}" Grid.ColumnSpan="2" Style="{StaticResource Title}" />
+                            <TextBlock Text="{Binding Date}" Grid.ColumnSpan="2" Style="{StaticResource ObsTitle}" />
 
                             <TextBlock Text="Poids : " Grid.Row="1" Style="{StaticResource Info}"/>
                             <TextBlock Text="{Binding Weight}" Grid.Column="1" Grid.Row="1" Style="{StaticResource Content}"/>

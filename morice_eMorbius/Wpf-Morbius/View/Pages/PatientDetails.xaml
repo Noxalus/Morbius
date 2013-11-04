@@ -5,6 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Assets/MasterStyle.xaml"/>
+    </UserControl.Resources>
     <ScrollViewer>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -14,15 +17,15 @@
 
 
             <!-- Afficher la courbe de poids à la place du rectangle -->
-            <Label Content="Courbe de poids :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <TextBlock Text="Courbe de poids :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Style="{StaticResource Info}"/>
             <Rectangle Fill="AliceBlue" Height="150" Margin="10,31,10,0" VerticalAlignment="Top"/>
 
             <!-- Courbe de tension -->
-            <Label Content="Courbe de tension :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+            <TextBlock Text="Courbe de tension :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Style="{StaticResource Info}"/>
             <Rectangle Fill="AliceBlue" Height="150" Margin="10,31,10,0" VerticalAlignment="Top" Grid.Column="1"/>
 
-            <Label Content="Dernier commentaire : " HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-            <TextBlock Background="AliceBlue" Margin="10,212,10,35" TextWrapping="Wrap" Text="{Binding LastObservation}" Grid.ColumnSpan="2"/>
+            <TextBlock Text="Dernier commentaire : " HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Style="{StaticResource Info}"/>
+            <TextBlock Background="AliceBlue" Margin="10,212,10,35" TextWrapping="Wrap" Text="{Binding LastObservation}" Grid.ColumnSpan="2" Style="{StaticResource Content}"/>
 
             <!-- TODO : Invisible pour les infirmières -->
             <Button Content="Supprimer le patient" Command="{Binding DeletePatientCommand}" Margin="0,0,10,4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="158" Height="26" VerticalAlignment="Bottom"/>
