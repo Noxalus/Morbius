@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <app:ImageConverter x:Key="imageConverter" />
+        <ResourceDictionary Source="/Assets/MasterStyle.xaml"/>
     </UserControl.Resources>
     <Grid >
         <ScrollViewer Margin="10,0,10,41">
@@ -22,34 +22,34 @@
                                 <RowDefinition />
                                 <RowDefinition />
                                 <RowDefinition />
-                                <RowDefinition Height="50" />
+                                <RowDefinition Height="20" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="{Binding Date}" Grid.ColumnSpan="2" Background="AliceBlue"/>
+                            <TextBlock Text="{Binding Date}" Grid.ColumnSpan="2" Style="{StaticResource Title}" />
 
-                            <TextBlock Text="Poids : " Grid.Row="1"/>
-                            <TextBlock Text="{Binding Weight}" Grid.Column="1" Grid.Row="1"/>
+                            <TextBlock Text="Poids : " Grid.Row="1" Style="{StaticResource Info}"/>
+                            <TextBlock Text="{Binding Weight}" Grid.Column="1" Grid.Row="1" Style="{StaticResource Content}"/>
 
-                            <TextBlock Text="Pression : " Grid.Row="2"/>
-                            <TextBlock Text="{Binding BloodPressure}" Grid.Column="1" Grid.Row="2"/>
+                            <TextBlock Text="Pression : " Grid.Row="2" Style="{StaticResource Info}"/>
+                            <TextBlock Text="{Binding BloodPressure}" Grid.Column="1" Grid.Row="2" Style="{StaticResource Content}"/>
 
-                            <TextBlock Text="Commentaire : "  Grid.Row="3"/>
-                            <TextBlock Text="{Binding Comment}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="3"/>
+                            <TextBlock Text="Commentaire : "  Grid.Row="3" Style="{StaticResource Info}"/>
+                            <TextBlock Text="{Binding Comment}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="3" Style="{StaticResource Content}"/>
 
-                            <TextBlock Text="Prescriptions : "  Grid.Row="4"/>
+                            <TextBlock Text="Prescriptions : "  Grid.Row="4" Style="{StaticResource Info}"/>
                             <ItemsControl ItemsSource="{Binding Prescription}" Grid.Column="1" Grid.Row="4">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap" Style="{StaticResource Content}"/>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
 
-                            <TextBlock Text="Images : "  Grid.Row="5"/>
+                            <TextBlock Text="Images : "  Grid.Row="5" Style="{StaticResource Info}"/>
                             <ScrollViewer  Grid.Column="1" Grid.Row="5" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
                                 <ItemsControl ItemsSource="{Binding Pictures}">
                                     <ItemsControl.ItemsPanel>

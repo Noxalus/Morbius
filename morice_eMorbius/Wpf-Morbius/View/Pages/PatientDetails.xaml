@@ -21,8 +21,7 @@
             <Label Content="Courbe de tension :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1"/>
             <Rectangle Fill="AliceBlue" Height="150" Margin="10,31,10,0" VerticalAlignment="Top" Grid.Column="1"/>
 
-            <!--Binder à la derniere observation si applicable-->
-            <Label Content="Dernière prescription : " HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <Label Content="Dernier commentaire : " HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
             <TextBlock Background="AliceBlue" Margin="10,212,10,35" TextWrapping="Wrap" Text="{Binding LastObservation}" Grid.ColumnSpan="2"/>
 
             <!-- TODO : Invisible pour les infirmières -->
