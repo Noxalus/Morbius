@@ -24,7 +24,6 @@
         <Label Content="Rôle : " HorizontalAlignment="Left" Margin="127,62,0,0" VerticalAlignment="Top"/>
         <Label Content="{Binding Role}" HorizontalAlignment="Left" Margin="165,62,0,0" VerticalAlignment="Top"/>
 
-        <!-- Penser à binder la couleur (cf TP3) et à eventuellement changer le connecté en non connecter -->
         <Ellipse x:Name="ellipse1"  Width="10" Height="10" Stroke="Black" Fill="{Binding Path=Connected, Converter={StaticResource colorConverter}}" Margin="127,131,163,159" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <Label Content="{Binding Path=Connected, Converter={StaticResource stringConverter}}" HorizontalAlignment="Left" Margin="151,128,0,0" VerticalAlignment="Top"/>
         <Button Content="Supprimer cet utilisateur" Command="{Binding DeleteUserCommand}" Margin="0,0,10,10" HorizontalAlignment="Right" Width="204" Height="26" VerticalAlignment="Bottom"/>

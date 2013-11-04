@@ -3,9 +3,74 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:app="clr-namespace:Wpf_Morbius"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <app:ImageConverter x:Key="imageConverter" />
+    </UserControl.Resources>
     <Grid >
+        <ScrollViewer Margin="10,0,10,41">
+            <ItemsControl ItemsSource="{Binding Obs}" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Date}" Grid.ColumnSpan="2" Background="AliceBlue"/>
+
+                            <TextBlock Text="Poids : " Grid.Row="1"/>
+                            <TextBlock Text="{Binding Weight}" Grid.Column="1" Grid.Row="1"/>
+
+                            <TextBlock Text="Pression : " Grid.Row="2"/>
+                            <TextBlock Text="{Binding BloodPressure}" Grid.Column="1" Grid.Row="2"/>
+
+                            <TextBlock Text="Commentaire : "  Grid.Row="3"/>
+                            <TextBlock Text="{Binding Comment}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="3"/>
+
+                            <TextBlock Text="Prescriptions : "  Grid.Row="4"/>
+                            <ItemsControl ItemsSource="{Binding Prescription}" Grid.Column="1" Grid.Row="4">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <TextBlock Text="Images : "  Grid.Row="5"/>
+                            <ScrollViewer  Grid.Column="1" Grid.Row="5" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
+                                <ItemsControl ItemsSource="{Binding Pictures}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal"></StackPanel>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Image Source="{Binding Path=., Converter={StaticResource imageConverter}}" Height="100"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <Button Content="Ajouter un commentaire" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="198"/>
 
     </Grid>
 </UserControl>
