@@ -8,12 +8,12 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Name="content">
         <Label Content="{Binding BasicInformation}" HorizontalAlignment="Left" Margin="10,-10,0,0" VerticalAlignment="Top"/>
-        <mui:ModernTab SelectedSource="View/Pages/PatientDetails.xaml" Layout="Tab" Margin="10,31,0,0">
+        <mui:ModernTab SelectedSource="View/Pages/PatientDetails.xaml" Layout="Tab" Margin="10,31,0,0" >
             <mui:ModernTab.Links>
                 <mui:Link DisplayName="Résumé" Source="View/Pages/PatientDetails.xaml"/>
-                <mui:Link DisplayName="Obs." Source="" />
-                <mui:Link DisplayName="Pouls" Source="" />
-                <mui:Link DisplayName="Temp." Source="" />
+                <mui:Link DisplayName="Obs." Source="View/Pages/PatientObs.xaml" />
+                <mui:Link DisplayName="Pouls" Source="View/Pages/PatientPulse.xaml" />
+                <mui:Link DisplayName="Temp." Source="View/Pages/PatientTemp.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
         

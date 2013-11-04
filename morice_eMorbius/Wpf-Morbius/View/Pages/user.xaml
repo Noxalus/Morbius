@@ -10,12 +10,13 @@
     <UserControl.Resources>
         <app:BoolColorConverter x:Key="colorConverter"/>
         <app:BoolConnectedConverter x:Key="stringConverter"/>
+        <app:ImageConverter x:Key="imageConverter" />
     </UserControl.Resources>
     
     <Grid Name="content">
         <Label Content="{Binding Fullname}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
 
-        <Image HorizontalAlignment="Left" Height="100" Margin="10,41,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image Source="{Binding Path=Picture, Converter={StaticResource imageConverter}}" HorizontalAlignment="Left" Height="100" Margin="10,41,0,0" VerticalAlignment="Top" Width="100"/>
 
         <Label Content="Login : " HorizontalAlignment="Left" Margin="127,41,0,0" VerticalAlignment="Top"/>
         <Label Content="{Binding Login}" HorizontalAlignment="Left" Margin="171,41,0,0" VerticalAlignment="Top"/>

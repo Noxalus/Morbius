@@ -36,6 +36,14 @@ namespace Wpf_Morbius.ViewModel
         }
 
         /// <summary>
+        /// Image de la personne
+        /// </summary>
+        public byte[] Picture
+        {
+            get { return _user.Picture; }
+        }
+
+        /// <summary>
         /// Statut de connexion de la personne
         /// </summary>
         public bool Connected

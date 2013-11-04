@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
@@ -65,6 +66,8 @@
     </ApplicationDefinition>
     <Compile Include="Tools\BoolColorConverter.cs" />
     <Compile Include="Tools\BoolConnectedConverter.cs" />
+    <Compile Include="Tools\Image.cs" />
+    <Compile Include="Tools\ImageConverter.cs" />
     <Compile Include="Tools\ListContentLoader.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Service References\ServiceLive\Reference.cs">
@@ -97,6 +100,7 @@
     <Compile Include="ViewModel\AddUserViewModel.cs" />
     <Compile Include="ViewModel\AddPatientViewModel.cs" />
     <Compile Include="ViewModel\PatientDetailsViewModel.cs" />
+    <Compile Include="ViewModel\PatientObsViewModel.cs" />
     <Compile Include="ViewModel\PatientViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\UserListViewModel.cs" />
@@ -108,6 +112,15 @@
     </Compile>
     <Compile Include="View\Pages\PatientAdd.xaml.cs">
       <DependentUpon>PatientAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PatientObs.xaml.cs">
+      <DependentUpon>PatientObs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PatientPulse.xaml.cs">
+      <DependentUpon>PatientPulse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PatientTemp.xaml.cs">
+      <DependentUpon>PatientTemp.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\UserAdd.xaml.cs">
       <DependentUpon>UserAdd.xaml</DependentUpon>
@@ -246,6 +259,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\PatientList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PatientObs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PatientPulse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PatientTemp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

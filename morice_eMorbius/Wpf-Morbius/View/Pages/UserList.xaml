@@ -10,7 +10,7 @@
 	Title="Liste des utilisateurs">
 
     <Grid>
-        <mui:ModernTab SelectedSource="/View/Pages/NoUser.xaml" Layout="List" Name="listBox" Links="{Binding Items}" >
+        <mui:ModernTab SelectedSource="/View/Pages/NoUser.xaml" Layout="List" Name="listBox" Links="{Binding Items}">
             <mui:ModernTab.ContentLoader>
                 <app:ListContentLoader />
             </mui:ModernTab.ContentLoader>
