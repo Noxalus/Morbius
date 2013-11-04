@@ -63,7 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ListContentLoader.cs" />
+    <Compile Include="Tools\BoolColorConverter.cs" />
+    <Compile Include="Tools\BoolConnectedConverter.cs" />
+    <Compile Include="Tools\ListContentLoader.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Service References\ServiceLive\Reference.cs">
       <AutoGen>True</AutoGen>
