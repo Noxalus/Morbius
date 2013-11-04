@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Wpf_Morbius.ViewModel;
 
 namespace Wpf_Morbius.View
 {
@@ -23,6 +24,13 @@ namespace Wpf_Morbius.View
         public MasterView()
         {
             InitializeComponent();
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            var suc = new ServiceUser.ServiceUserClient();
+            suc.Disconnect(LoginViewModel.GetUser().Login);
+            base.OnClosing(e);
         }
     }
 }
