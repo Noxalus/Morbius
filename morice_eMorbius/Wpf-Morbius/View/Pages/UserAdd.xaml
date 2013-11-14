@@ -12,9 +12,8 @@
     </Page.Resources>
 
     <Grid>
-        <Label Content="Ajout d'un utilisateur" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding Error}"  Style="{StaticResource Error}" Margin="20,20,0,0"/>
-        <TextBlock Text="{Binding Success}"  Style="{StaticResource Success}" Margin="20,20,0,0" />
+        <TextBlock Text="Ajout d'un utilisateur" Style="{StaticResource Title}" />
+
         <Label Content="Nom :" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
         <Label Content="Prenom :" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top"/>
         <Label Content="Login :" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
@@ -29,6 +28,8 @@
         <Label Height="23" Margin="113,204,10,0" Content="{Binding SelectedPath}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Button Content="Ajouter" Command="{Binding OpenCommand}" Margin="0,204,10,0" HorizontalAlignment="Right" Width="121" Height="26" VerticalAlignment="Top" />
 
+        <TextBlock Text="{Binding Error}"  Style="{StaticResource Error}" Margin="0,230,0,0"/>
+        <TextBlock Text="{Binding Success}"  Style="{StaticResource Success}" Margin="0,230,0,0" />
 
         <Button Content="Ajouter" Command="{Binding AddUserCommand}" CommandParameter="{Binding ElementName=Password}" Margin="0,0,10,10" HorizontalAlignment="Right" Width="121" Height="26" VerticalAlignment="Bottom" />
 

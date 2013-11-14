@@ -10,18 +10,18 @@
     <Page.Resources>
         <ResourceDictionary Source="/Assets/MasterStyle.xaml"/>
     </Page.Resources>
-
     <Grid>
-        <Label Content="Ajout d'un patient" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding Error}"  Style="{StaticResource Error}" Margin="0,20,0,0"/>
-        <TextBlock Text="{Binding Success}"  Style="{StaticResource Success}" Margin="0,20,0,0" />
+        <TextBlock Text="Ajout d'un patient" Style="{StaticResource Title}"/>
 
-        <Label Content="Nom :" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top"/>
-        <Label Content="Prenom :" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top"/>
-        <Label Content="Date de naissance :" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top"/>
-        <TextBox Height="23" Margin="131,63,10,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top"/>
-        <TextBox Height="23" Margin="131,91,10,0" TextWrapping="Wrap" Text="{Binding Firstname}" VerticalAlignment="Top"/>
-        <DatePicker Margin="131,119,10,0" VerticalAlignment="Top" SelectedDate="{Binding Birthday}"/>
+        <Label Content="Nom :" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
+        <Label Content="Prenom :" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
+        <Label Content="Date de naissance :" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top"/>
+        <TextBox Height="23" Margin="131,50,10,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top"/>
+        <TextBox Height="23" Margin="131,78,10,0" TextWrapping="Wrap" Text="{Binding Firstname}" VerticalAlignment="Top"/>
+        <DatePicker Margin="131,106,10,0" VerticalAlignment="Top" SelectedDate="{Binding Birthday}"/>
+
+        <TextBlock Text="{Binding Error}"  Style="{StaticResource Error}" Margin="0,150,0,0"/>
+        <TextBlock Text="{Binding Success}"  Style="{StaticResource Success}" Margin="0,150,0,0" />
 
         <Button Content="Ajouter" Margin="0,0,10,10" Command="{Binding AddPatientCommand}" HorizontalAlignment="Right" Width="121" Height="26" VerticalAlignment="Bottom" />
     </Grid>

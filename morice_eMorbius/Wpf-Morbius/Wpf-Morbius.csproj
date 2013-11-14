@@ -129,6 +129,9 @@
     <Compile Include="View\Pages\PatientDetails.xaml.cs">
       <DependentUpon>PatientDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PatientObsAdd.xaml.cs">
+      <DependentUpon>PatientObsAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowCloseBehaviour.cs" />
     <Compile Include="View\MasterView.xaml.cs">
       <DependentUpon>MasterView.xaml</DependentUpon>
@@ -292,6 +295,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\UserList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientObsAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
