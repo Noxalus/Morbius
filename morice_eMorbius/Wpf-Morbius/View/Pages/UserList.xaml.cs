@@ -26,7 +26,7 @@ namespace Wpf_Morbius.View.Pages
         {
             InitializeComponent();
 
-            DataContext = new UserListViewModel();
+            DataContext = App.ViewModels["UserList"];
         }
     }
 }

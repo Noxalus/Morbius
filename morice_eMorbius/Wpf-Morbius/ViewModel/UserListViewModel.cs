@@ -10,33 +10,41 @@ namespace Wpf_Morbius.ViewModel
     class UserListViewModel : BaseViewModel
     {
         ServiceUser.User[] _users;
-        private LinkCollection items = new LinkCollection();
+        private LinkCollection _items = new LinkCollection();
 
         public LinkCollection Items
         {
-            get { return this.items; }
+            get { return this._items; }
             set
             {
-                if (this.items != value)
+                if (this._items != value)
                 {
-                    this.items = value;
+                    this._items = value;
+                    OnPropertyChanged("Items");
                 }
             }
         }
 
         public UserListViewModel()
         {
+            RefreshUserList();
+        }
+
+        public void RefreshUserList()
+        {
             var suc = new ServiceUser.ServiceUserClient();
             _users = suc.GetListUser();
 
+            this._items.Clear();
             foreach (ServiceUser.User u in _users)
             {
-                this.items.Add(new Link
+                this._items.Add(new Link
                 {
                     DisplayName = u.Login,
                     Source = new Uri("User/" + u.Login, UriKind.Relative),
                 });
             }
+
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
+using Wpf_Morbius.ViewModel;
 
 namespace Wpf_Morbius
 {
@@ -7,6 +9,8 @@ namespace Wpf_Morbius
     /// </summary>
     public partial class App : Application
     {
+        public static Dictionary<string, BaseViewModel> ViewModels = new Dictionary<string, BaseViewModel>();
+
         /// <summary>
         /// permet de lancer la 1er fenêtre
         /// </summary>
@@ -15,11 +19,14 @@ namespace Wpf_Morbius
         {
             base.OnStartup(e);
 
-            var window = new View.LoginView();
-            var vm = new ViewModel.LoginViewModel();
-            window.DataContext = vm;
+            var loginWindow = new View.LoginView();
 
-            window.Show();
+            ViewModels.Add("Login", new ViewModel.LoginViewModel());
+            ViewModels.Add("UserList", new ViewModel.UserListViewModel());
+            ViewModels.Add("PatientList", new ViewModel.PatientListViewModel());
+
+            loginWindow.DataContext = ViewModels["Login"];
+            loginWindow.Show();
         }
     }
 }

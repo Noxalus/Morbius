@@ -42,6 +42,9 @@ namespace Wpf_Morbius.ViewModel
 
                 spc.DeletePatient(PatientViewModel.Patient.Id);
 
+                // Refresh patient list
+                (App.ViewModels["PatientList"] as PatientListViewModel).RefreshPatientList();
+
                 // Go to patient list
             }
             catch (Exception)
