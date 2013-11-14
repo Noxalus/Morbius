@@ -30,9 +30,9 @@
             <TranslateTransform x:Name="AnimatedDeletedContent" X="0" Y="0"/>
         </Grid.RenderTransform>
 
-        <StackPanel Margin="10, -990, 10, 10">
-            <TextBlock Text="Bienvenue sur MORBIUS" />
-            <TextBlock Text="Choisissez un patient dans la liste ci-contre." />
+        <StackPanel Margin="10, -1000, 10, 10">
+            <TextBlock Text="Bienvenue sur MORBIUS" Style="{StaticResource Title}" />
+            <TextBlock Text="Choisissez un patient dans la liste ci-contre pour commencer. Le profil d'un patient vous donnera accès à toutes les informations dont vous avez besoin sur celui-ci." TextWrapping="Wrap" TextAlignment="Justify"/>
         </StackPanel>
 
 

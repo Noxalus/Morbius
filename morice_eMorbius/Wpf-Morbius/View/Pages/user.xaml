@@ -32,12 +32,12 @@
             <TranslateTransform x:Name="AnimatedDeletedContent" X="0" Y="0"/>
         </Grid.RenderTransform>
 
-            <StackPanel Margin="10, -990, 10, 10">
-                <TextBlock Text="Bienvenue sur MORBIUS" />
-                <TextBlock Text="Choisissez un utilisateur dans la liste ci-contre." />
-            </StackPanel>
+        <StackPanel Margin="10, -1000, 10, 10">
+            <TextBlock Text="Bienvenue sur MORBIUS" Style="{StaticResource Title}" />
+            <TextBlock Text="Choisissez un utilisateur dans la liste ci-contre pour commencer. Le profil d'un utilisateur vous donnera accès à toutes les informations dont vous avez besoin sur celui-ci." TextWrapping="Wrap" TextAlignment="Justify"/>
+        </StackPanel>
 
-            <TextBlock Text="{Binding Fullname}" Style="{StaticResource Title}" />
+        <TextBlock Text="{Binding Fullname}" Style="{StaticResource Title}" />
 
         <Image Source="{Binding Path=Picture, Converter={StaticResource imageConverter}}" HorizontalAlignment="Left" Height="100" Margin="10,41,0,0" VerticalAlignment="Top" Width="100"/>
 
