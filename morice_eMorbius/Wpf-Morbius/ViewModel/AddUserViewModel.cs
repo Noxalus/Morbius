@@ -101,7 +101,11 @@ namespace Wpf_Morbius.ViewModel
                 _user.Pwd = password;
                 suc.AddUser(_user);
 
+                // Refresh user list
+                (App.ViewModels["UserList"] as UserListViewModel).RefreshUserList();
+
                 // Go to user list
+
             }
             catch (Exception)
             {

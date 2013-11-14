@@ -12,7 +12,7 @@ namespace Wpf_Morbius.View.Pages
         {
             InitializeComponent();
 
-            DataContext = new PatientListViewModel();
+            DataContext = App.ViewModels["PatientList"];
         }
     }
 }

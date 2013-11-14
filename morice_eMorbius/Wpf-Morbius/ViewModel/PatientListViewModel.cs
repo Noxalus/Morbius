@@ -10,16 +10,16 @@ namespace Wpf_Morbius.ViewModel
     class PatientListViewModel : BaseViewModel
     {
         ServicePatient.Patient[] _patientList;
-        private LinkCollection items = new LinkCollection();
+        private LinkCollection _items = new LinkCollection();
 
         public LinkCollection Items
         {
-            get { return this.items; }
+            get { return this._items; }
             set
             {
-                if (this.items != value)
+                if (this._items != value)
                 {
-                    this.items = value;
+                    this._items = value;
                 }
             }
         }
@@ -42,12 +42,18 @@ namespace Wpf_Morbius.ViewModel
 
         public PatientListViewModel()
         {
+            RefreshPatientList();
+        }
+
+        public void RefreshPatientList()
+        {
             var spc = new ServicePatient.ServicePatientClient();
             _patientList = spc.GetListPatient();
 
+            this._items.Clear();
             foreach (ServicePatient.Patient p in _patientList)
             {
-                this.items.Add(new Link
+                this._items.Add(new Link
                 {
                     DisplayName = p.Name,
                     Source = new Uri("Patient/" + p.Id, UriKind.Relative),

@@ -73,6 +73,9 @@ namespace Wpf_Morbius.ViewModel
 
                 spc.AddPatient(_patient);
 
+                // Refresh patient list
+                (App.ViewModels["PatientList"] as PatientListViewModel).RefreshPatientList();
+
                 // Go to patient list
             }
             catch (Exception)
