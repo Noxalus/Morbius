@@ -7,11 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <ResourceDictionary Source="/Assets/MasterStyle.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Assets/MasterStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Storyboard x:Key="deletionStoryboard" x:Name="deletionStoryboard">
+                <DoubleAnimation Duration="0:0:2"
+                             Storyboard.TargetName="AnimatedDeletedContent"
+                             Storyboard.TargetProperty="Y"
+                             To="1000" >
+                    <DoubleAnimation.EasingFunction>
+                        <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+        </ResourceDictionary>
     </UserControl.Resources>
+    
     <Grid Name="content">
+        <Grid.RenderTransform>
+            <TranslateTransform x:Name="AnimatedDeletedContent" X="0" Y="0"/>
+        </Grid.RenderTransform>
+
+        <StackPanel Margin="10, -990, 10, 10">
+            <TextBlock Text="Bienvenue sur MORBIUS" />
+            <TextBlock Text="Choisissez un patient dans la liste ci-contre." />
+        </StackPanel>
+
+
         <TextBlock Text="{Binding BasicInformation}"  Style="{StaticResource Title}"/>
-        <mui:ModernTab SelectedSource="View/Pages/PatientDetails.xaml" Layout="Tab" Margin="10,60,0,0" >
+        <mui:ModernTab SelectedSource="View/Pages/PatientDetails.xaml" Layout="Tab" Margin="10,60,0,35" >
             <mui:ModernTab.Links>
                 <mui:Link DisplayName="Résumé" Source="View/Pages/PatientDetails.xaml"/>
                 <mui:Link DisplayName="Obs." Source="View/Pages/PatientObs.xaml" />
@@ -19,6 +45,7 @@
                 <mui:Link DisplayName="Temp." Source="View/Pages/PatientTemp.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
+        <Button Content="Supprimer le patient" Command="{Binding DeletePatientCommand}" Margin="0,0,10,4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="158" Height="26" VerticalAlignment="Bottom"/>
 
 
     </Grid>

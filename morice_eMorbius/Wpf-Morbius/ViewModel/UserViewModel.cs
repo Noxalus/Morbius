@@ -121,7 +121,7 @@ namespace Wpf_Morbius.ViewModel
                     // Refresh user list
                     (App.ViewModels["UserList"] as UserListViewModel).RefreshUserList();
 
-                    // Go to user list
+                    
                 }
                 else
                 {

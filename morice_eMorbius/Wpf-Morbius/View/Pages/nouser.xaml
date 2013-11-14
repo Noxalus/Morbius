@@ -6,6 +6,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <ScrollViewer>
+            <StackPanel >
+                <TextBlock Text="Bienvenue sur MORBIUS" />
+                <TextBlock Text="Choisissez un utilisateur dans la liste ci-contre." />
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>
