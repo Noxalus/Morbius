@@ -73,6 +73,9 @@ namespace Wpf_Morbius.ViewModel
 
                 spc.AddPatient(_patient);
 
+                // Reset fields
+                ResetFields();
+
                 // Refresh patient list
                 (App.ViewModels["PatientList"] as PatientListViewModel).RefreshPatientList();
 
@@ -85,6 +88,14 @@ namespace Wpf_Morbius.ViewModel
             }
         }
 
+        private void ResetFields()
+        {
+            Firstname = null;
+            Name = null;
+            Birthday = DateTime.Now;
+
+            _patient = new Patient { Birthday = DateTime.Now };
+        }
 
     }
 }

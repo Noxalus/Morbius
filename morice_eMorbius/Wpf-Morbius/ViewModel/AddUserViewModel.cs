@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Wpf_Morbius.Services;
 using Wpf_Morbius.ServiceUser;
 
 namespace Wpf_Morbius.ViewModel
@@ -13,6 +14,21 @@ namespace Wpf_Morbius.ViewModel
         /// command pour ajouter un utilisateur
         /// </summary>
         public ICommand AddUserCommand { get; set; }
+
+        /// <summary>
+        /// command pour ouvrir un fichier
+        /// </summary>
+        public ICommand OpenCommand { get; set; }
+
+        private IOService _ioService;
+
+        private string _selectedPath;
+        public string SelectedPath
+        {
+            get { return _selectedPath; }
+            set { _selectedPath = value; OnPropertyChanged("SelectedPath"); }
+        }
+
 
         #region Accessors
         public string Login
@@ -85,6 +101,9 @@ namespace Wpf_Morbius.ViewModel
         {
             _user = new User();
 
+            _ioService = new IOService();
+            OpenCommand = new RelayCommand(param => OpenFileDialog(), param => true);
+
             // Commandes
             AddUserCommand = new RelayCommand(param => CreateUser(((PasswordBox)param).Password), param => true);
         }
@@ -99,7 +118,13 @@ namespace Wpf_Morbius.ViewModel
                 var suc = new ServiceUser.ServiceUserClient();
 
                 _user.Pwd = password;
+                // Read selected file
+                _user.Picture = _ioService.OpenFile(_selectedPath);
+
                 suc.AddUser(_user);
+
+                // Reset fields
+                ResetFields();
 
                 // Refresh user list
                 (App.ViewModels["UserList"] as UserListViewModel).RefreshUserList();
@@ -109,11 +134,31 @@ namespace Wpf_Morbius.ViewModel
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
 
+        private void ResetFields()
+        {
+            SelectedPath = "";
 
+            Login = null;
+            Firstname = null;
+            Name = null;
+            Picture = null;
+            Role = null;
+
+            _user = new User();
+        }
+
+        private void OpenFileDialog()
+        {
+            SelectedPath = _ioService.OpenFileDialog(@"c:\");
+            if (SelectedPath == null)
+            {
+                SelectedPath = string.Empty;
+            }
+        }
     }
 }
