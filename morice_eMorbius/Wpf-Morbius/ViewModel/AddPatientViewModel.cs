@@ -113,6 +113,10 @@ namespace Wpf_Morbius.ViewModel
                 Error = "";
                 Success = "";
 
+                // We check that all fields are filled
+                CheckFields();
+
+                // Check that patient didn't already exist
                 foreach(var patient in (App.ViewModels["PatientList"] as PatientListViewModel).PatientList)
                 {
                     if (patient.Firstname.Equals(_patient.Firstname) &&
@@ -138,6 +142,27 @@ namespace Wpf_Morbius.ViewModel
             catch (Exception ex)
             {
                 Error = ex.Message;
+            }
+        }
+
+        private void CheckFields()
+        {
+            // Name
+            if (Name == null || Name.Equals(""))
+            {
+                throw new Exception("Vous n'avez pas entré de nom !");
+            }
+
+            // Firstname
+            if (Firstname == null || Firstname.Equals(""))
+            {
+                throw new Exception("Vous n'avez pas entré de prénom !");
+            }
+
+            // Birthday
+            if (Birthday == null || Birthday.Equals(""))
+            {
+                throw new Exception("Vous n'avez pas entré de date de naissance !");
             }
         }
 

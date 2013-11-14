@@ -159,11 +159,24 @@ namespace Wpf_Morbius.ViewModel
                 Error = "";
                 Success = "";
 
+                // We check that all fields are filled
+                CheckFields(password);
+
+                // Check that patient didn't already exist
+                foreach (var user in (App.ViewModels["UserList"] as UserListViewModel).UserList)
+                {
+                    if (user.Login.Equals(_user.Login))
+                    {
+                        throw new Exception("Cet utilisateur existe déjà !");
+                    }
+                }
+
                 var suc = new ServiceUser.ServiceUserClient();
 
-                _user.Pwd = password;
                 // Read selected file
                 _user.Picture = _ioService.OpenFile(_selectedPath);
+
+                _user.Pwd = password;
 
                 suc.AddUser(_user);
 
@@ -179,6 +192,46 @@ namespace Wpf_Morbius.ViewModel
             catch (Exception ex)
             {
                 Error = ex.Message;
+            }
+        }
+
+        private void CheckFields(string password)
+        {
+            // Name
+            if (Name == null || Name.Equals(""))
+            {
+                throw new Exception("Vous n'avez pas entré de nom !");
+            }
+
+            // Firstname
+            if (Firstname == null || Firstname.Equals(""))
+            {
+                throw new Exception("Vous n'avez pas entré de prénom !");
+            }
+
+            // Login
+            if (Login == null || Login.Equals(""))
+            {
+                throw new Exception("Vous n'avez pas entré de login !");
+            }
+
+            // Password
+            if (password == null || password.Equals(""))
+            {
+                throw new Exception("Vous n'avez pas entré de mot de passe !");
+            }
+
+            // Role
+            if (Role == null || Role.Equals(""))
+            {
+                throw new Exception("Vous n'avez pas entré de rôle !");
+            }
+
+            // Photo
+            if (_selectedPath == null || _selectedPath.Equals(""))
+            {
+                // Photo obligatoire ?
+                throw new Exception("Vous n'avez pas sélectionné de photo !");
             }
         }
 

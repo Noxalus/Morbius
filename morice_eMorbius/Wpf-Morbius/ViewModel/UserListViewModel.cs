@@ -25,6 +25,11 @@ namespace Wpf_Morbius.ViewModel
             }
         }
 
+        public ServiceUser.User[] UserList
+        {
+            get { return _users; }
+        }
+
         public UserListViewModel()
         {
             RefreshUserList();
