@@ -117,6 +117,7 @@ namespace Wpf_Morbius.ViewModel
                     suc.DeleteUser(_user.Login);
 
                     Sb.Begin();
+
                     // Refresh user list
                     (App.ViewModels["UserList"] as UserListViewModel).RefreshUserList();
 
