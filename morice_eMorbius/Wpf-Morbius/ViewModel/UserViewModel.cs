@@ -92,7 +92,7 @@ namespace Wpf_Morbius.ViewModel
                 var suc = new ServiceUser.ServiceUserClient();
 
                 _user = suc.GetUser(login);
-                _fullname = StringHelper.UppercaseFirst(_user.Firstname) + " " + _user.Name.ToUpper();
+                _fullname = StringHelper.FullName(_user.Firstname, _user.Name);
 
                 // Commandes
                 DeleteUserCommand = new RelayCommand(param => DeleteUser(), param => true);

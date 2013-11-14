@@ -5,7 +5,6 @@
         Title="Morbius" IsTitleVisible="True"
         ContentSource="/View/Pages/PatientList.xaml"
         MinWidth="600" MinHeight="450">
-
     
     <mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup DisplayName="Patients" >

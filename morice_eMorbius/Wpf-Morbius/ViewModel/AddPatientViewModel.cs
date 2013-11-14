@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 using Wpf_Morbius.ServicePatient;
+using Wpf_Morbius.Tools;
 
 namespace Wpf_Morbius.ViewModel
 {
     class AddPatientViewModel : BaseViewModel
     {
         private Patient _patient;
+
+        // Messages
+        private string _error;
+        private string _success;
 
         /// <summary>
         /// command pour ajouter un patient
@@ -52,10 +58,45 @@ namespace Wpf_Morbius.ViewModel
                 }
             }
         }
+
+        /// <summary>
+        /// erreur lors de l'ajout d'un patient
+        /// </summary>
+        public string Error
+        {
+            get { return _error; }
+            set
+            {
+                if (_error != value)
+                {
+                    _error = value;
+                    OnPropertyChanged("Error");
+                }
+            }
+        }
+
+        /// <summary>
+        /// message de réussite lors de création d'un patient
+        /// </summary>
+        public string Success
+        {
+            get { return _success; }
+            set
+            {
+                if (_success != value)
+                {
+                    _success = value;
+                    OnPropertyChanged("Success");
+                }
+            }
+        }
         #endregion
 
         public AddPatientViewModel()
         {
+            Error = "";
+            Success = "";
+
             _patient = new Patient {Birthday = DateTime.Now };
 
             // Commandes
@@ -69,22 +110,34 @@ namespace Wpf_Morbius.ViewModel
         {
             try
             {
+                Error = "";
+                Success = "";
+
+                foreach(var patient in (App.ViewModels["PatientList"] as PatientListViewModel).PatientList)
+                {
+                    if (patient.Firstname.Equals(_patient.Firstname) &&
+                        patient.Name.Equals(_patient.Name) &&
+                        patient.Birthday.Equals(_patient.Birthday))
+                    {
+                        throw new Exception("Ce patient existe déjà !");
+                    }
+                }
+
                 var spc = new ServicePatient.ServicePatientClient();
 
                 spc.AddPatient(_patient);
+
+                Success = "Le patient \"" + StringHelper.FullName(_patient.Firstname, _patient.Name) + "\" a été bien été ajouté !";
 
                 // Reset fields
                 ResetFields();
 
                 // Refresh patient list
                 (App.ViewModels["PatientList"] as PatientListViewModel).RefreshPatientList();
-
-                // Go to patient list
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Error = ex.Message;
             }
         }
 

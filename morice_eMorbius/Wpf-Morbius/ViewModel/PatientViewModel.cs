@@ -26,9 +26,7 @@ namespace Wpf_Morbius.ViewModel
                 var spc = new ServicePatient.ServicePatientClient();
                 Patient = spc.GetPatient(id);
 
-                _basicInformation = 
-                    StringHelper.UppercaseFirst(Patient.Firstname) + " " + 
-                    Patient.Name.ToUpper() + " - " + 
+                _basicInformation = StringHelper.FullName(Patient.Firstname, Patient.Name) + " - " + 
                     String.Format("{0:dd/MM/yyyy}", Patient.Birthday);
             }
             catch (Exception)

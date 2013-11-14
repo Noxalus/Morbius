@@ -43,7 +43,15 @@
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
-    
-    
+    <Style x:Key="Success" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        <Setter Property="Foreground" Value="Green"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+
+
 
 </ResourceDictionary>

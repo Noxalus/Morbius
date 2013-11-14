@@ -13,5 +13,10 @@ namespace Wpf_Morbius.Tools
             // Return char and concat substring.
             return char.ToUpper(s[0]) + s.Substring(1);
         }
+
+        public static string FullName(string firstname, string name)
+        {
+            return StringHelper.UppercaseFirst(firstname) + " " + name.ToUpper();
+        }
     }
 }

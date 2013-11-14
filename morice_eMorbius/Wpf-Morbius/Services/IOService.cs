@@ -12,10 +12,29 @@ namespace Wpf_Morbius.Services
     {
         public string OpenFileDialog(string defaultPath)
         {
+            // Set the file dialog to filter for graphics files.
+
             var dialog = new OpenFileDialog { InitialDirectory = defaultPath };
-            dialog.ShowDialog();
+            dialog.Filter = "Images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            dialog.Title = "\\o/ Mon superbe selecteur d'image ! \\o/";
+
+            var result = dialog.ShowDialog();
 
             return dialog.FileName;
+        }
+
+        public string[] OpenMultipleFileDialog(string defaultPath)
+        {
+            // Set the file dialog to filter for graphics files.
+
+            var dialog = new OpenFileDialog { InitialDirectory = defaultPath };
+            dialog.Filter = "Images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            dialog.Multiselect = true;
+            dialog.Title = "\\o/ Mon superbe selecteur d'image multiple ! \\o/";
+
+            dialog.ShowDialog();
+
+            return dialog.FileNames;
         }
 
         public byte[] OpenFile(string path)

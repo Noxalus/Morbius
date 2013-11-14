@@ -10,6 +10,10 @@ namespace Wpf_Morbius.ViewModel
     {
         private User _user;
 
+        // Messages
+        private string _error;
+        private string _success;
+
         /// <summary>
         /// command pour ajouter un utilisateur
         /// </summary>
@@ -95,10 +99,47 @@ namespace Wpf_Morbius.ViewModel
                 }
             }
         }
+
+        /// <summary>
+        /// erreur lors de l'ajout d'un utilisateur
+        /// </summary>
+        public string Error
+        {
+            get { return _error; }
+            set
+            {
+                if (_error != value)
+                {
+                    _error = value;
+                    OnPropertyChanged("Error");
+                }
+            }
+        }
+
+        /// <summary>
+        /// message de réussite lors de création d'un utilisateur
+        /// </summary>
+        public string Success
+        {
+            get { return _success; }
+            set
+            {
+                if (_success != value)
+                {
+                    _success = value;
+                    OnPropertyChanged("Success");
+                }
+            }
+        }
+        
+        
         #endregion
 
         public AddUserViewModel()
         {
+            Error = "";
+            Success = "";
+
             _user = new User();
 
             _ioService = new IOService();
@@ -115,6 +156,9 @@ namespace Wpf_Morbius.ViewModel
         {
             try
             {
+                Error = "";
+                Success = "";
+
                 var suc = new ServiceUser.ServiceUserClient();
 
                 _user.Pwd = password;
@@ -123,19 +167,18 @@ namespace Wpf_Morbius.ViewModel
 
                 suc.AddUser(_user);
 
+                // Go to user list
+                Success = "L'utilisateur \"" + _user.Login + "\" a bien été ajouté !"; 
+
                 // Reset fields
                 ResetFields();
 
                 // Refresh user list
                 (App.ViewModels["UserList"] as UserListViewModel).RefreshUserList();
-
-                // Go to user list
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Error = ex.Message;
             }
         }
 
@@ -154,10 +197,17 @@ namespace Wpf_Morbius.ViewModel
 
         private void OpenFileDialog()
         {
-            SelectedPath = _ioService.OpenFileDialog(@"c:\");
-            if (SelectedPath == null)
+            string savedSelectedPath = SelectedPath;
+            string defaultPath = @"C:\";
+            
+            if (!(SelectedPath == null || SelectedPath.Equals("")))
+                defaultPath = SelectedPath;
+
+            SelectedPath = _ioService.OpenFileDialog(defaultPath);
+            
+            if (SelectedPath == null || SelectedPath.Equals(""))
             {
-                SelectedPath = string.Empty;
+                SelectedPath = savedSelectedPath;
             }
         }
     }
