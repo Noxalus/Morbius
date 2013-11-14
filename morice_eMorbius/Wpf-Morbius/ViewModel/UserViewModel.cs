@@ -14,6 +14,13 @@ namespace Wpf_Morbius.ViewModel
         private string _error;
         private Storyboard _sb;
 
+        public ServiceUser.User CurrentUser
+        {
+            get { return LoginViewModel.GetUser(); }
+        } 
+
+
+
         public Storyboard Sb
         {
             get { return _sb; }

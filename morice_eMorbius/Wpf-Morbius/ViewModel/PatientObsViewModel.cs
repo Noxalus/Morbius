@@ -12,6 +12,11 @@ namespace Wpf_Morbius.ViewModel
         private ServicePatient.Observation[] _obs;
         private ICommand _addCommand;
 
+        public ServiceUser.User CurrentUser
+        {
+            get { return LoginViewModel.GetUser(); }
+        } 
+
         public ICommand AddCommand
         {
             get { return _addCommand; }

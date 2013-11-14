@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\StringVisibilityConverter.cs" />
+    <Compile Include="Tools\UserVisibilityConverter.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

@@ -17,6 +17,11 @@ namespace Wpf_Morbius.ViewModel
         /// </summary>
         public ICommand DeletePatientCommand { get; set; }
 
+        public ServiceUser.User CurrentUser
+        {
+            get { return LoginViewModel.GetUser(); }
+        } 
+
         public Storyboard Sb
         {
             get { return _sb; }

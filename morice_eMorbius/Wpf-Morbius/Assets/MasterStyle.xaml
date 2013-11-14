@@ -6,6 +6,7 @@
     <app:ImageConverter x:Key="imageConverter" />
     <app:BoolColorConverter x:Key="colorConverter"/>
     <app:BoolConnectedConverter x:Key="stringConverter"/>
+    <app:UserVisibilityConverter x:Key="userConverter"/>
 
     <Style x:Key="Title" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Segoe UI" />
