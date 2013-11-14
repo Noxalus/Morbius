@@ -20,7 +20,9 @@
         <TextBox Height="23" Margin="113,106,10,0" TextWrapping="Wrap" Text="{Binding Login, Mode=TwoWay}" VerticalAlignment="Top"/>
         <PasswordBox Name="Password" Margin="113,134,10,0" VerticalAlignment="Top" Height="23"/>
         <TextBox Height="23" Margin="113,162,10,0" TextWrapping="Wrap" Text="{Binding Role, Mode=TwoWay}" VerticalAlignment="Top"/>
-        <TextBox Height="23" Margin="113,190,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Height="23" Margin="113,190,10,0" Content="{Binding SelectedPath}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button Content="Ajouter" Command="{Binding OpenCommand}" Margin="113,190,10,0" HorizontalAlignment="Right" Width="121" Height="26" VerticalAlignment="Top" />
+
 
         <Button Content="Ajouter" Command="{Binding AddUserCommand}" CommandParameter="{Binding ElementName=Password}" Margin="0,0,10,10" HorizontalAlignment="Right" Width="121" Height="26" VerticalAlignment="Bottom" />
 

@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\IOService.cs" />
     <Compile Include="Tools\BoolColorConverter.cs" />
     <Compile Include="Tools\BoolConnectedConverter.cs" />
     <Compile Include="Tools\Image.cs" />
