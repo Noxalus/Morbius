@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using Wpf_Morbius.Tools;
 
 namespace Wpf_Morbius.ViewModel
@@ -11,6 +12,13 @@ namespace Wpf_Morbius.ViewModel
         private readonly ServiceUser.User _user;
         private readonly string _fullname;
         private string _error;
+        private Storyboard _sb;
+
+        public Storyboard Sb
+        {
+            get { return _sb; }
+            set { _sb = value;}
+        }
 
         /// <summary>
         /// command pour ajouter un utilisateur
@@ -107,6 +115,8 @@ namespace Wpf_Morbius.ViewModel
                     var suc = new ServiceUser.ServiceUserClient();
 
                     suc.DeleteUser(_user.Login);
+
+                    Sb.Begin();
 
                     // Refresh user list
                     (App.ViewModels["UserList"] as UserListViewModel).RefreshUserList();

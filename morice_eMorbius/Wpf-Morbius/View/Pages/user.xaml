@@ -8,10 +8,36 @@
              d:DesignHeight="300" d:DesignWidth="300">
 
     <UserControl.Resources>
-        <ResourceDictionary Source="/Assets/MasterStyle.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Assets/MasterStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Storyboard x:Key="deletionStoryboard" x:Name="deletionStoryboard">
+                <DoubleAnimation Duration="0:0:2"
+                             Storyboard.TargetName="AnimatedDeletedContent"
+                             Storyboard.TargetProperty="Y"
+                             To="1000" >
+                    <DoubleAnimation.EasingFunction>
+                        <BackEase Amplitude="0.3" EasingMode="EaseInOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation
+                    Storyboard.TargetName="NewContent"
+                    Storyboard.TargetProperty="Opacity"
+                    From="0.0" 
+                    To="1.0" 
+                    Duration="0:0:1"/>
+            </Storyboard>
+        </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid Name="content">
+        <Grid>
+        <Grid.RenderTransform>
+            <TranslateTransform x:Name="AnimatedDeletedContent" X="0" Y="0"/>
+        </Grid.RenderTransform>
+        
         <TextBlock Text="{Binding Fullname}" Style="{StaticResource Title}" />
 
         <Image Source="{Binding Path=Picture, Converter={StaticResource imageConverter}}" HorizontalAlignment="Left" Height="100" Margin="10,41,0,0" VerticalAlignment="Top" Width="100"/>
@@ -27,6 +53,17 @@
         <Button Content="Supprimer cet utilisateur" Command="{Binding DeleteUserCommand}" Margin="0,0,10,10" HorizontalAlignment="Right" Width="204" Height="26" VerticalAlignment="Bottom"/>
 
         <TextBlock Text="{Binding Error}" Margin="25,196,25,41" Height="63" Width="250" Style="{StaticResource Error}"></TextBlock>
-
+        </Grid>
+        <Grid x:Name="NewContent" Opacity="0.0">
+            <ScrollViewer>
+                <StackPanel >
+                    <TextBlock Text="Bienvenue sur MORBIUS" />
+                    <TextBlock Text="Choisissez un patient dans la liste ci-contre." />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Grid>
+    
+    
+    
 </UserControl>

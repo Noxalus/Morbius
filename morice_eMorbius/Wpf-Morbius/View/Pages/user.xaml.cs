@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -25,7 +26,9 @@ namespace Wpf_Morbius.View.Pages
         {
             InitializeComponent();
 
-            DataContext = new UserViewModel(login);
+            UserViewModel vm = new UserViewModel(login);
+            vm.Sb = this.FindResource("deletionStoryboard") as Storyboard;
+            DataContext = vm;
         }
     }
 }
