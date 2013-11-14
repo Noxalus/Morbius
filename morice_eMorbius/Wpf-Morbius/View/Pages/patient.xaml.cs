@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 using Wpf_Morbius.ViewModel;
 
 namespace Wpf_Morbius.View.Pages
@@ -13,7 +14,9 @@ namespace Wpf_Morbius.View.Pages
         {
             InitializeComponent();
 
-            DataContext = new PatientViewModel( Convert.ToInt32(id));
+            PatientViewModel vm = new PatientViewModel(Convert.ToInt32(id));
+            vm.Sb = this.FindResource("deletionStoryboard") as Storyboard;
+            DataContext = vm;
         }
     }
 }

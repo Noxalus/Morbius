@@ -2,17 +2,13 @@
 using System;
 using System.Linq;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using Wpf_Morbius.ServicePatient;
 
 namespace Wpf_Morbius.ViewModel
 {
     class PatientDetailsViewModel : BaseViewModel
     {
-        /// <summary>
-        /// command pour supprimer un patient
-        /// </summary>
-        public ICommand DeletePatientCommand { get; set; }
-
         public string LastObservation
         {
             get
@@ -27,31 +23,7 @@ namespace Wpf_Morbius.ViewModel
 
         public PatientDetailsViewModel()
         {
-            // Commandes
-            DeletePatientCommand = new RelayCommand(param => DeletePatient(), param => true);
-        }
-
-        /// <summary>
-        /// action permettant de supprimer un patient
-        /// </summary>
-        private void DeletePatient()
-        {
-            try
-            {
-                var spc = new ServicePatient.ServicePatientClient();
-
-                spc.DeletePatient(PatientViewModel.Patient.Id);
-
-                // Refresh patient list
-                (App.ViewModels["PatientList"] as PatientListViewModel).RefreshPatientList();
-
-                // Go to patient list
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
     }
 }
