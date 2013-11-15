@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="ViewModel\AddUserViewModel.cs" />
     <Compile Include="ViewModel\AddPatientViewModel.cs" />
+    <Compile Include="ViewModel\AddObservationViewModel.cs" />
     <Compile Include="ViewModel\PatientDetailsViewModel.cs" />
     <Compile Include="ViewModel\PatientObsViewModel.cs" />
     <Compile Include="ViewModel\PatientViewModel.cs" />
@@ -235,6 +236,10 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Assets\AddObservationStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Assets\LoginStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

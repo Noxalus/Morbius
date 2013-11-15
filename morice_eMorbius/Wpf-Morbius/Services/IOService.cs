@@ -23,7 +23,7 @@ namespace Wpf_Morbius.Services
             return dialog.FileName;
         }
 
-        public string[] OpenMultipleFileDialog(string defaultPath)
+        public List<string> OpenMultipleFileDialog(string defaultPath)
         {
             // Set the file dialog to filter for graphics files.
 
@@ -34,12 +34,17 @@ namespace Wpf_Morbius.Services
 
             dialog.ShowDialog();
 
-            return dialog.FileNames;
+            return dialog.FileNames.ToList();
         }
 
         public byte[] OpenFile(string path)
         {
             return File.ReadAllBytes(path);
+        }
+
+        public byte[][] OpenFiles(List<string> paths)
+        {
+            return paths.Select(File.ReadAllBytes).ToArray();
         }
     }
 }

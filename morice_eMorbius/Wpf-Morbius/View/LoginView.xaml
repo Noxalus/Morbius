@@ -13,7 +13,6 @@
     </Window.Resources>
 
     <Grid Style="{StaticResource StyleMainGrid}">
-
         <TextBlock Text="Morbius" Style="{StaticResource Title}" HorizontalAlignment="Stretch" Margin="10,19,10,0" VerticalAlignment="Top"/>
         <TextBlock Text="{Binding Error}"  Style="{StaticResource Error}"/>
         <TextBlock Text="Veuillez vous connecter pour accéder à l'application." Style="{StaticResource SubTitle}" Visibility="{Binding Path=Error, Converter={StaticResource VisibilityConverter}}" />
@@ -23,12 +22,6 @@
         <TextBox Text="{Binding Login, Mode=TwoWay}" Margin="138,0,10,128" TextWrapping="Wrap" Height="25" VerticalAlignment="Bottom"/>
         <PasswordBox Name="Password" Margin="138,0,10,88" Height="25" VerticalAlignment="Bottom"/>
 
-
         <Button Content="Valider" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Password}" HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom" Width="75"/>
-
-
-
-
-
     </Grid>
 </mui:ModernWindow>

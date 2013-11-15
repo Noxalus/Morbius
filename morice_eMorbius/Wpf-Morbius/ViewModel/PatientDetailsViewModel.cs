@@ -13,9 +13,11 @@ namespace Wpf_Morbius.ViewModel
         {
             get
             {
-                if (PatientViewModel.Patient.Observations != null && 
+                if (PatientViewModel.Patient.Observations != null &&
                     PatientViewModel.Patient.Observations.Any())
+                {
                     return PatientViewModel.Patient.Observations.Last().Comment;
+                }
 
                 return null;
             }

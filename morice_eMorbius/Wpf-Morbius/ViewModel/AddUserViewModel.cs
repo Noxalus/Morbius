@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf_Morbius.Services;
@@ -15,12 +16,12 @@ namespace Wpf_Morbius.ViewModel
         private string _success;
 
         /// <summary>
-        /// command pour ajouter un utilisateur
+        /// commande pour ajouter un utilisateur
         /// </summary>
         public ICommand AddUserCommand { get; set; }
 
         /// <summary>
-        /// command pour ouvrir un fichier
+        /// commande pour ouvrir un fichier
         /// </summary>
         public ICommand OpenCommand { get; set; }
 
@@ -143,10 +144,10 @@ namespace Wpf_Morbius.ViewModel
             _user = new User();
 
             _ioService = new IOService();
-            OpenCommand = new RelayCommand(param => OpenFileDialog(), param => true);
 
             // Commandes
             AddUserCommand = new RelayCommand(param => CreateUser(((PasswordBox)param).Password), param => true);
+            OpenCommand = new RelayCommand(param => OpenFileDialog(), param => true);
         }
 
         /// <summary>
@@ -163,9 +164,10 @@ namespace Wpf_Morbius.ViewModel
                 CheckFields(password);
 
                 // Check that patient didn't already exist
-                foreach (var user in (App.ViewModels["UserList"] as UserListViewModel).UserList)
+                var userListViewModel = App.ViewModels["UserList"] as UserListViewModel;
+                if (userListViewModel != null)
                 {
-                    if (user.Login.Equals(_user.Login))
+                    if (userListViewModel.UserList.Any(user => user.Login.Equals(_user.Login)))
                     {
                         throw new Exception("Cet utilisateur existe déjà !");
                     }

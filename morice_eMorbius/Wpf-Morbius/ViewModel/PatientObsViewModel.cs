@@ -43,8 +43,8 @@ namespace Wpf_Morbius.ViewModel
         private void addObs()
         {
             var window = new View.PatientObsAdd();
-            //var vm = new PatientObsAddViewModel();
-            //window.DataContext = vm;
+            var vm = new AddObservationViewModel(PatientViewModel.Patient.Id);
+            window.DataContext = vm;
             window.Show();      
         }
 
