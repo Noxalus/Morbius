@@ -1,9 +1,5 @@
 ﻿
-using System;
 using System.Linq;
-using System.Windows.Input;
-using System.Windows.Media.Animation;
-using Wpf_Morbius.ServicePatient;
 
 namespace Wpf_Morbius.ViewModel
 {

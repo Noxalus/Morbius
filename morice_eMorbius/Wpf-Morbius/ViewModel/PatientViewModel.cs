@@ -10,7 +10,7 @@ namespace Wpf_Morbius.ViewModel
     {
         private Storyboard _sb;
         public static ServicePatient.Patient Patient;
-        private readonly string _basicInformation;
+        private static string _basicInformation;
 
         /// <summary>
         /// command pour supprimer un patient
@@ -20,7 +20,7 @@ namespace Wpf_Morbius.ViewModel
         public ServiceUser.User CurrentUser
         {
             get { return LoginViewModel.GetUser(); }
-        } 
+        }
 
         public Storyboard Sb
         {
@@ -40,22 +40,11 @@ namespace Wpf_Morbius.ViewModel
 
         public PatientViewModel(int id)
         {
-            try
-            {
-                var spc = new ServicePatient.ServicePatientClient();
-                Patient = spc.GetPatient(id);
+            UpdatePatient(id);
 
-                _basicInformation = StringHelper.FullName(Patient.Firstname, Patient.Name) + " - " + 
-                    String.Format("{0:dd/MM/yyyy}", Patient.Birthday);
+            // Commandes
+            DeletePatientCommand = new RelayCommand(param => DeletePatient(), param => true);
 
-                // Commandes
-                DeletePatientCommand = new RelayCommand(param => DeletePatient(), param => true);
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
         }
 
         /// <summary>
@@ -75,6 +64,23 @@ namespace Wpf_Morbius.ViewModel
                 (App.ViewModels["PatientList"] as PatientListViewModel).RefreshPatientList();
 
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void UpdatePatient(int id)
+        {
+            try
+            {
+                var spc = new ServicePatient.ServicePatientClient();
+                Patient = spc.GetPatient(id);
+
+                _basicInformation = StringHelper.FullName(Patient.Firstname, Patient.Name) + " - " +
+                    String.Format("{0:dd/MM/yyyy}", Patient.Birthday);
             }
             catch (Exception)
             {

@@ -127,8 +127,9 @@ namespace Wpf_Morbius.ViewModel
                     }
                 }
 
-                var spc = new ServicePatient.ServicePatientClient();
+                _patient.Observations = new List<Observation>().ToArray();
 
+                var spc = new ServicePatient.ServicePatientClient();
                 spc.AddPatient(_patient);
 
                 Success = "Le patient \"" + StringHelper.FullName(_patient.Firstname, _patient.Name) + "\" a été bien été ajouté !";
@@ -148,19 +149,19 @@ namespace Wpf_Morbius.ViewModel
         private void CheckFields()
         {
             // Name
-            if (Name == null || Name.Equals(""))
+            if (String.IsNullOrEmpty(Name))
             {
                 throw new Exception("Vous n'avez pas entré de nom !");
             }
 
             // Firstname
-            if (Firstname == null || Firstname.Equals(""))
+            if (String.IsNullOrEmpty(Firstname))
             {
                 throw new Exception("Vous n'avez pas entré de prénom !");
             }
 
             // Birthday
-            if (Birthday == null || Birthday.Equals(""))
+            if (Birthday == null)
             {
                 throw new Exception("Vous n'avez pas entré de date de naissance !");
             }

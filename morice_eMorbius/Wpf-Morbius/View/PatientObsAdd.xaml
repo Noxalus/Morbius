@@ -25,7 +25,9 @@
         <Button Content="Ajouter" Command="{Binding OpenCommand}" Margin="0,320,10,0" HorizontalAlignment="Right" Width="121" Height="26" VerticalAlignment="Top" />
         <TextBox HorizontalAlignment="Left" Height="23" Margin="68,351,0,0" TextWrapping="Wrap" Text="{Binding Weight}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="353,351,0,0" TextWrapping="Wrap" Text="{Binding BloodPressure}" VerticalAlignment="Top" Width="120"/>
-        
+
+        <TextBlock Text="{Binding Error}"  Style="{StaticResource Error}" Margin="0,400,0,0"/>
+
         <Button Content="Ajouter" Command="{Binding AddObservationCommand}"  Margin="0,0,10,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="144"/>
     </Grid>
 </mui:ModernWindow>

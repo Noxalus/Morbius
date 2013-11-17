@@ -102,7 +102,7 @@ namespace Wcf_Medical
                 }
                 return false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }

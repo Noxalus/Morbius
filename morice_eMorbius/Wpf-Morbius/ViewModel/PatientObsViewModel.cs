@@ -1,53 +1,74 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using Wpf_Morbius.ServicePatient;
 
 namespace Wpf_Morbius.ViewModel
 {
     class PatientObsViewModel : BaseViewModel
     {
-        private ServicePatient.Observation[] _obs;
-        private ICommand _addCommand;
+        private List<Observation> _observations;
 
         public ServiceUser.User CurrentUser
         {
             get { return LoginViewModel.GetUser(); }
-        } 
-
-        public ICommand AddCommand
-        {
-            get { return _addCommand; }
-            set { _addCommand = value; }
         }
 
-        public ServicePatient.Observation[] Obs
+        public ICommand AddCommand { get; set; }
+
+        public List<Observation> Observations
         {
-            get { return _obs; }
-            set { _obs = value; }
+            get { return _observations; }
+            set
+            {
+                if (_observations != value)
+                {
+                    _observations = value;
+                    OnPropertyChanged("Observations");
+                }
+            }
         }
 
         public PatientObsViewModel()
         {
-            _obs = PatientViewModel.Patient.Observations;
+            Observations = PatientViewModel.Patient.Observations.ToList();
 
             // Commandes
-            _addCommand = new RelayCommand(param => addObs(), param => true);
+            AddCommand = new RelayCommand(param => OpenAddObservationWindow(), param => true);
         }
 
         /// <summary>
         /// action permettant d'ouvrir la pop-up
         /// </summary>
-        private void addObs()
+        private void OpenAddObservationWindow()
         {
             var window = new View.PatientObsAdd();
-            var vm = new AddObservationViewModel(PatientViewModel.Patient.Id);
+            var vm = new AddObservationViewModel(this, PatientViewModel.Patient.Id);
             window.DataContext = vm;
-            window.Show();      
+            window.Show();
         }
 
+        public void AddObservation(ServiceObservation.Observation observation)
+        {
+            var patient = PatientViewModel.Patient;
+            var obs = PatientViewModel.Patient.Observations;
 
+            var soc = new ServiceObservation.ServiceObservationClient();
+
+            if (soc.AddObservation(patient.Id, observation))
+            {
+                PatientViewModel.UpdatePatient(patient.Id);
+
+                if (PatientViewModel.Patient.Observations != null)
+                {
+                    Observations = PatientViewModel.Patient.Observations.ToList();
+                }
+            }
+            else
+            {
+                throw new Exception("L'observation n'a pas été ajoutée !");
+            }
+        }
     }
 }

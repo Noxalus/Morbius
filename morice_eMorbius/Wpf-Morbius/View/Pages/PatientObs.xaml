@@ -11,7 +11,7 @@
     </UserControl.Resources>
     <Grid >
         <ScrollViewer Margin="10,0,10,41">
-            <ItemsControl ItemsSource="{Binding Obs}" >
+            <ItemsControl ItemsSource="{Binding Observations}" >
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid>

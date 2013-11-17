@@ -200,37 +200,37 @@ namespace Wpf_Morbius.ViewModel
         private void CheckFields(string password)
         {
             // Name
-            if (Name == null || Name.Equals(""))
+            if (String.IsNullOrEmpty(Name))
             {
                 throw new Exception("Vous n'avez pas entré de nom !");
             }
 
             // Firstname
-            if (Firstname == null || Firstname.Equals(""))
+            if (String.IsNullOrEmpty(Firstname))
             {
                 throw new Exception("Vous n'avez pas entré de prénom !");
             }
 
             // Login
-            if (Login == null || Login.Equals(""))
+            if (String.IsNullOrEmpty(Login))
             {
                 throw new Exception("Vous n'avez pas entré de login !");
             }
 
             // Password
-            if (password == null || password.Equals(""))
+            if (String.IsNullOrEmpty(password))
             {
                 throw new Exception("Vous n'avez pas entré de mot de passe !");
             }
 
             // Role
-            if (Role == null || Role.Equals(""))
+            if (String.IsNullOrEmpty(Role))
             {
                 throw new Exception("Vous n'avez pas entré de rôle !");
             }
 
             // Photo
-            if (_selectedPath == null || _selectedPath.Equals(""))
+            if (String.IsNullOrEmpty(_selectedPath))
             {
                 // Photo obligatoire ?
                 throw new Exception("Vous n'avez pas sélectionné de photo !");
@@ -255,12 +255,12 @@ namespace Wpf_Morbius.ViewModel
             string savedSelectedPath = SelectedPath;
             string defaultPath = @"C:\";
             
-            if (!(SelectedPath == null || SelectedPath.Equals("")))
+            if (!String.IsNullOrEmpty(SelectedPath))
                 defaultPath = SelectedPath;
 
             SelectedPath = _ioService.OpenFileDialog(defaultPath);
             
-            if (SelectedPath == null || SelectedPath.Equals(""))
+            if (String.IsNullOrEmpty(SelectedPath))
             {
                 SelectedPath = savedSelectedPath;
             }

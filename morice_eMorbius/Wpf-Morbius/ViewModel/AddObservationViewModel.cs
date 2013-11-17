@@ -12,11 +12,16 @@ namespace Wpf_Morbius.ViewModel
 {
     class AddObservationViewModel : BaseViewModel
     {
+        private PatientObsViewModel _patientObsViewModel;
+
         private int _patientId;
         private Observation _observation;
         private List<string> _selectedPaths;
         private IOService _ioService;
         private bool _closeSignal;
+
+        // Messages
+        private string _error;
 
         public string Comment
         {
@@ -43,7 +48,7 @@ namespace Wpf_Morbius.ViewModel
 
         public string SelectedPathsText
         {
-            get { return (_selectedPaths != null) ? String.Join("\r\n", _selectedPaths.Select(Path.GetFileName)) : null; }
+            get { return (_selectedPaths != null) ? String.Join(", ", _selectedPaths.Select(Path.GetFileName)) : null; }
         }
 
         public int Weight
@@ -68,6 +73,22 @@ namespace Wpf_Morbius.ViewModel
                 {
                     _observation.BloodPressure = value;
                     OnPropertyChanged("BloodPressure");
+                }
+            }
+        }
+
+        /// <summary>
+        /// erreur lors de l'ajout d'une observation
+        /// </summary>
+        public string Error
+        {
+            get { return _error; }
+            set
+            {
+                if (_error != value)
+                {
+                    _error = value;
+                    OnPropertyChanged("Error");
                 }
             }
         }
@@ -98,12 +119,15 @@ namespace Wpf_Morbius.ViewModel
         /// </summary>
         public ICommand OpenCommand { get; set; }
 
-        public AddObservationViewModel(int patientId)
+        public AddObservationViewModel(PatientObsViewModel viewModel, int patientId)
         {
+            _patientObsViewModel = viewModel;
             _patientId = patientId;
             _observation = new Observation();
             _ioService = new IOService();
             _selectedPaths = new List<string>();
+
+            Error = "";
 
             // Commands
             AddObservationCommand = new RelayCommand(param => AddObservation(), param => true);
@@ -114,35 +138,37 @@ namespace Wpf_Morbius.ViewModel
         {
             try
             {
+                Error = "";
+
+                // We check that all fields are filled
                 CheckFields();
 
-                _observation.Pictures = _ioService.OpenFiles(_selectedPaths);
+                if (_selectedPaths.Count > 0)
+                    _observation.Pictures = _ioService.OpenFiles(_selectedPaths);
 
-                var soc = new ServiceObservation.ServiceObservationClient();
-                soc.AddObservation(_patientId, _observation);
+                _observation.Date = DateTime.Now;
 
-                ResetFields();
-                
+                _patientObsViewModel.AddObservation(_observation);
+
                 // We close the window
                 CloseSignal = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                Error = ex.Message;
             }
         }
 
         private void CheckFields()
         {
             // Comment
-            if (Comment == null || Comment.Equals(""))
+            if (String.IsNullOrEmpty(Comment))
             {
                 throw new Exception("Vous n'avez pas entré de commentaire !");
             }
 
             // Prescription
-            if (Prescription == null || Prescription.Equals(""))
+            if (String.IsNullOrEmpty(Prescription))
             {
                 throw new Exception("Vous n'avez pas entré de prescription !");
             }
