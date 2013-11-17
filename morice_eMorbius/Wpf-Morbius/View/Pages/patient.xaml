@@ -41,8 +41,7 @@
             <mui:ModernTab.Links>
                 <mui:Link DisplayName="Résumé" Source="View/Pages/PatientDetails.xaml"/>
                 <mui:Link DisplayName="Obs." Source="View/Pages/PatientObs.xaml" />
-                <mui:Link DisplayName="Pouls" Source="View/Pages/PatientPulse.xaml" />
-                <mui:Link DisplayName="Temp." Source="View/Pages/PatientTemp.xaml" />
+                <mui:Link DisplayName="Live" Source="View\Pages\PatientLive.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
         <Button Content="Supprimer le patient" Visibility="{Binding Path=CurrentUser, Converter={StaticResource userConverter}}" Command="{Binding DeletePatientCommand}" Margin="0,0,10,4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="158" Height="26" VerticalAlignment="Bottom"/>

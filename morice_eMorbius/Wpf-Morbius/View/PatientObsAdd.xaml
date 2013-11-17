@@ -11,20 +11,22 @@
     <Window.Resources>
         <ResourceDictionary Source="/Assets/AddObservationStyle.xaml"/>
     </Window.Resources>
-    <Grid>
+    <Grid Style="{StaticResource StyleMainGrid}">
         <TextBlock Text="Ajouter un commentaire" Style="{StaticResource Title}" HorizontalAlignment="Stretch" Margin="10,10,10,0" VerticalAlignment="Top" TextWrapping="Wrap"/>
         <Label Content="Commentaire :" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
         <Label Content="Prescriptions (une par ligne) :" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top"/>
         <Label Content="Images :" HorizontalAlignment="Left" Margin="10,324,0,0" VerticalAlignment="Top"/>
-        <Label Content="Poids :" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pression :" HorizontalAlignment="Left" Margin="277,354,0,0" VerticalAlignment="Top"/>
-        
+        <Label Content="Poids :" HorizontalAlignment="Left" Margin="10,362,0,0" VerticalAlignment="Top"/>
+        <Label Content="kg" HorizontalAlignment="Left" Margin="99,362,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pression artérielle :" HorizontalAlignment="Left" Margin="284,362,0,0" VerticalAlignment="Top"/>
+        <Label Content="cmHg" HorizontalAlignment="Left" Margin="450,362,0,0" VerticalAlignment="Top"/>
+
         <TextBox Height="102" Margin="30,89,10,0" TextWrapping="Wrap" Text="{Binding Comment, Mode=TwoWay}"  VerticalAlignment="Top" AcceptsReturn="True"/>
         <TextBox Height="93" Margin="30,217,10,0" TextWrapping="Wrap" Text="{Binding Prescription, Mode=TwoWay}" VerticalAlignment="Top" AcceptsReturn="True"/>
-        <Label Height="23" Margin="68,320,0,0" VerticalAlignment="Top" Content="{Binding SelectedPathsText}" HorizontalAlignment="Left"/>
-        <Button Content="Ajouter" Command="{Binding OpenCommand}" Margin="0,320,10,0" HorizontalAlignment="Right" Width="121" Height="26" VerticalAlignment="Top" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="68,351,0,0" TextWrapping="Wrap" Text="{Binding Weight}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="353,351,0,0" TextWrapping="Wrap" Text="{Binding BloodPressure}" VerticalAlignment="Top" Width="120"/>
+        <Label Height="23" Margin="68,324,0,0" VerticalAlignment="Top" Content="{Binding SelectedPathsText}" HorizontalAlignment="Left"/>
+        <Button Content="Ajouter" Command="{Binding OpenCommand}" Margin="0,324,10,0" HorizontalAlignment="Right" Width="121" Height="26" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="54,359,0,0" TextWrapping="Wrap" Text="{Binding Weight}" VerticalAlignment="Top" Width="42"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="404,359,0,0" TextWrapping="Wrap" Text="{Binding BloodPressure}" VerticalAlignment="Top" Width="42"/>
 
         <TextBlock Text="{Binding Error}"  Style="{StaticResource Error}" Margin="0,400,0,0"/>
 
