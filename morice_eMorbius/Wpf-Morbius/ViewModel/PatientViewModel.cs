@@ -81,8 +81,10 @@ namespace Wpf_Morbius.ViewModel
 
                 _basicInformation = StringHelper.FullName(Patient.Firstname, Patient.Name) + " - " +
                     String.Format("{0:dd/MM/yyyy}", Patient.Birthday);
+
+                (App.ViewModels["PatientDetails"] as PatientDetailsViewModel).UpdateChart();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

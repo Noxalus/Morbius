@@ -134,9 +134,6 @@
     <Compile Include="View\Pages\PatientObs.xaml.cs">
       <DependentUpon>PatientObs.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\PatientPulse.xaml.cs">
-      <DependentUpon>PatientPulse.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Pages\PatientLive.xaml.cs">
       <DependentUpon>PatientLive.xaml</DependentUpon>
     </Compile>
@@ -292,10 +289,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\PatientObs.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\PatientPulse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

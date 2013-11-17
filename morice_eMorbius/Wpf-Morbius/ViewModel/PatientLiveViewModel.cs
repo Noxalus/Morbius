@@ -14,16 +14,15 @@ namespace Wpf_Morbius.ViewModel
 {
     class PatientLiveViewModel : BaseViewModel
     {
-        private BackgroundWorker _worker = new BackgroundWorker();
-        private BackgroundWorker _dataUpdater = new BackgroundWorker();
+        private readonly BackgroundWorker _worker = new BackgroundWorker();
+        private readonly BackgroundWorker _dataUpdater = new BackgroundWorker();
 
-        private LiveCallBack _callBackClass;
+        private readonly LiveCallBack _callBackClass;
 
         private List<KeyValuePair<DateTime, double>> _heartData;
         private List<KeyValuePair<DateTime, double>> _tempData;
 
         private string _state;
-        private List<string> _heartDataList;
 
         public string State
         {
@@ -70,7 +69,6 @@ namespace Wpf_Morbius.ViewModel
             var slc = new ServiceLive.ServiceLiveClient(new InstanceContext(_callBackClass));
 
             _state = "Waiting...";
-            _heartDataList = new List<string>();
 
             _heartData = new List<KeyValuePair<DateTime, double>>();
             _tempData = new List<KeyValuePair<DateTime, double>>();

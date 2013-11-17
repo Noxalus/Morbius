@@ -7,7 +7,7 @@ namespace Wpf_Morbius.Services
 {
     class LiveCallBack : ServiceLive.IServiceLiveCallback
     {
-        private List<double> _heartDataList;
+        private readonly List<double> _heartDataList;
         private readonly List<double> _tempDataList;
 
         public LiveCallBack()

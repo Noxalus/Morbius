@@ -24,6 +24,7 @@ namespace Wpf_Morbius
             ViewModels.Add("Login", new ViewModel.LoginViewModel());
             ViewModels.Add("UserList", new ViewModel.UserListViewModel());
             ViewModels.Add("PatientList", new ViewModel.PatientListViewModel());
+            ViewModels.Add("PatientDetails", new ViewModel.PatientDetailsViewModel());
 
             loginWindow.DataContext = ViewModels["Login"];
             loginWindow.Show();

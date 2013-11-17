@@ -12,7 +12,7 @@
         <Label Content="{Binding State}" />
 
         <!-- Line Chart -->
-        <chartingToolkit:Chart Canvas.Top="80" Canvas.Left="10" Name="mcChart" 
+        <chartingToolkit:Chart Canvas.Top="80" Canvas.Left="10" Name="LiveChart" 
            Background="AliceBlue">
             <DVC:Chart.Series>
                 <DVC:LineSeries Title="Rythme cardiaque" ItemsSource="{Binding HeartData}"
