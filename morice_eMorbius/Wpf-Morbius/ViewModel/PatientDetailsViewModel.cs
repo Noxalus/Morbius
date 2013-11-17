@@ -12,7 +12,7 @@ namespace Wpf_Morbius.ViewModel
                 if (PatientViewModel.Patient.Observations != null &&
                     PatientViewModel.Patient.Observations.Any())
                 {
-                    return PatientViewModel.Patient.Observations.Last().Comment;
+                    return PatientViewModel.Patient.Observations.OrderByDescending(o => o.Date).Last().Comment;
                 }
 
                 return null;

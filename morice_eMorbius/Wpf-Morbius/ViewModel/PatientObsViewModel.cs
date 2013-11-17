@@ -32,7 +32,7 @@ namespace Wpf_Morbius.ViewModel
 
         public PatientObsViewModel()
         {
-            Observations = PatientViewModel.Patient.Observations.ToList();
+            Observations = PatientViewModel.Patient.Observations.OrderByDescending(o => o.Date).ToList();
 
             // Commandes
             AddCommand = new RelayCommand(param => OpenAddObservationWindow(), param => true);
@@ -52,17 +52,15 @@ namespace Wpf_Morbius.ViewModel
         public void AddObservation(ServiceObservation.Observation observation)
         {
             var patient = PatientViewModel.Patient;
-            var obs = PatientViewModel.Patient.Observations;
 
             var soc = new ServiceObservation.ServiceObservationClient();
-
             if (soc.AddObservation(patient.Id, observation))
             {
                 PatientViewModel.UpdatePatient(patient.Id);
 
                 if (PatientViewModel.Patient.Observations != null)
                 {
-                    Observations = PatientViewModel.Patient.Observations.ToList();
+                    Observations = PatientViewModel.Patient.Observations.OrderByDescending(o => o.Date).ToList();
                 }
             }
             else
