@@ -22,7 +22,7 @@
             <!-- Afficher la courbe de poids à la place du rectangle -->
             <TextBlock Text="Courbe de poids :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Style="{StaticResource Info}"/>
             
-            <chartingToolkit:Chart Canvas.Top="80" Canvas.Left="10" Name="WeightChart" Margin="10,31,10,0" VerticalAlignment="Top" Height="150" Width="242"
+            <chartingToolkit:Chart Canvas.Top="80" Canvas.Left="10" Name="WeightChart" Margin="10,31,10,0" VerticalAlignment="Top"
            Background="AliceBlue">
                 <chartingToolkit:Chart.LegendStyle>
                     <Style TargetType="DV:Legend">
@@ -40,7 +40,7 @@
             <!-- Courbe de tension -->
             <TextBlock Text="Courbe de tension :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Style="{StaticResource Info}"/>
 
-            <chartingToolkit:Chart Canvas.Top="80" Canvas.Left="10" Name="TensionChart" Grid.Column="1" Margin="10,31,10,0" VerticalAlignment="Top" Height="150" Width="242"
+            <chartingToolkit:Chart Canvas.Top="80" Canvas.Left="10" Name="TensionChart" Grid.Column="1" Margin="10,31,10,0" VerticalAlignment="Top"
            Background="AliceBlue">
                 <chartingToolkit:Chart.LegendStyle>
                     <Style TargetType="DV:Legend">

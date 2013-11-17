@@ -28,13 +28,17 @@ namespace Wpf_Morbius.Services
 
         public void PushDataHeart(double requestData)
         {
-            Debug.Print("Heart: " + requestData);
+            if (_heartDataList.Count > 100)
+                _heartDataList.Clear();
+
             _heartDataList.Add(requestData);
         }
 
         public void PushDataTemp(double requestData)
         {
-            Debug.Print("Temp: " + requestData);
+            if (_tempDataList.Count > 100)
+                _tempDataList.Clear();
+
             _tempDataList.Add(requestData);
         }
     }
