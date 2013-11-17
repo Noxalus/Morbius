@@ -16,7 +16,7 @@ namespace Wpf_Morbius.Services
 
             var dialog = new OpenFileDialog { InitialDirectory = defaultPath };
             dialog.Filter = "Images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
-            dialog.Title = "\\o/ Mon superbe selecteur d'image ! \\o/";
+            dialog.Title = "Veuillez selectionner une image";
 
             var result = dialog.ShowDialog();
 
@@ -30,7 +30,7 @@ namespace Wpf_Morbius.Services
             var dialog = new OpenFileDialog { InitialDirectory = defaultPath };
             dialog.Filter = "Images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
             dialog.Multiselect = true;
-            dialog.Title = "\\o/ Mon superbe selecteur d'image multiple ! \\o/";
+            dialog.Title = "Veuillez selectionner une ou plusieurs images";
 
             dialog.ShowDialog();
 
