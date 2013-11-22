@@ -37,19 +37,24 @@ namespace Wpf_Morbius.ViewModel
 
         public void RefreshUserList()
         {
-            var suc = new ServiceUser.ServiceUserClient();
-            _users = suc.GetListUser();
-
-            this._items.Clear();
-            foreach (ServiceUser.User u in _users)
+            try
             {
-                this._items.Add(new Link
-                {
-                    DisplayName = u.Login,
-                    Source = new Uri("User/" + u.Login, UriKind.Relative),
-                });
-            }
+                var suc = new ServiceUser.ServiceUserClient();
+                _users = suc.GetListUser();
 
+                this._items.Clear();
+                foreach (ServiceUser.User u in _users)
+                {
+                    this._items.Add(new Link
+                    {
+                        DisplayName = u.Login,
+                        Source = new Uri("User/" + u.Login, UriKind.Relative),
+                    });
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

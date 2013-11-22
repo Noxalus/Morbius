@@ -47,18 +47,25 @@ namespace Wpf_Morbius.ViewModel
 
         public void RefreshPatientList()
         {
-            var spc = new ServicePatient.ServicePatientClient();
-            _patientList = spc.GetListPatient();
-
-            this._items.Clear();
-            foreach (ServicePatient.Patient p in _patientList)
+            try
             {
-                this._items.Add(new Link
+                var spc = new ServicePatient.ServicePatientClient();
+                _patientList = spc.GetListPatient();
+
+                this._items.Clear();
+                foreach (ServicePatient.Patient p in _patientList)
                 {
-                    DisplayName = p.Name,
-                    Source = new Uri("Patient/" + p.Id, UriKind.Relative),
-                });
+                    this._items.Add(new Link
+                    {
+                        DisplayName = p.Name,
+                        Source = new Uri("Patient/" + p.Id, UriKind.Relative),
+                    });
+                }
             }
+            catch (Exception)
+            {
+            }
+            
         }
     }
 }

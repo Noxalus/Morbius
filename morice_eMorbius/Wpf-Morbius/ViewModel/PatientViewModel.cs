@@ -67,8 +67,6 @@ namespace Wpf_Morbius.ViewModel
             }
             catch (Exception)
             {
-
-                throw;
             }
         }
 
@@ -84,10 +82,8 @@ namespace Wpf_Morbius.ViewModel
 
                 (App.ViewModels["PatientDetails"] as PatientDetailsViewModel).UpdateChart();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                throw;
             }
         }
     }
